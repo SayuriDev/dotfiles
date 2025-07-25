@@ -2,7 +2,7 @@
 
 {
   # Fonts
-  home.packages = with pkgs; 
+  environment.systemPackages = with pkgs; 
   [
     jetbrains-mono
     nerd-font-patcher
