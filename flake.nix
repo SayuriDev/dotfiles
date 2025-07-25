@@ -6,9 +6,12 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
 };
 
-  outputs = { self, nixpkgs, home-manager, ...} @ inputs: let
+  outputs = { self, nixpkgs, home-manager, quickshell, ...} @ inputs: let
     inherit (self) outputs;
   in {
     # NixOS configuration entrypoint

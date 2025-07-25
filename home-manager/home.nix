@@ -8,32 +8,12 @@
   ...
 }: {
 
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd.enable = true;
-    
-    settings = {
-      "$mod" = "SUPER";
-     
-      bind = [
-        "$mod, R, exec, firefox"
-        "$mod, Q, exec, kitty"
-        "$mod_SHIFT, Q, killactive"
-
-      ];
-      # monitor = [ ", preferred, auto, 1" ];
-    };
-  };
-
   # You can import other home-manager modules here
   imports = [
-    # ./hyprland.nix
-    # ./services.nix
-    ./sound.nix
+    ./hyprland.nix
     ./fonts.nix
-    ./waybar.nix
     ./kitty.nix
+    ./quickshell.nix
   ];
   
   home = {
@@ -61,6 +41,8 @@
       kitty
     ];
 
+
+  
 
   programs.home-manager.enable = true;
   programs.git.enable = true;

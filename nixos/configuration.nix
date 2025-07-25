@@ -5,8 +5,6 @@
     ./hardware-configuration.nix
     ./nvidia.nix
     ./networking.nix
-    ./sound.nix
-    ./fonts.nix
 ];
 
   programs.hyprland.enable = true;
@@ -91,6 +89,31 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
+
+  # Audio
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Helper
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 3";
+    flake = "/home/sayu/dotfiles"; # sets NH_OS_FLAKE variable for you
+  
+};
 
   # Configure console keymap
   console.keyMap = "pl2";
