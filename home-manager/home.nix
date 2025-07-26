@@ -37,8 +37,8 @@
     [ 
       firefox
       neofetch
-      waybar
       kitty
+      quickshell
     ];
 
 

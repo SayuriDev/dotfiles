@@ -2,15 +2,15 @@
 
 {
   systemd.user.services.quickshell = {
-    enable = true;
-    description = "Quickshell UI";
-    wantedBy = [ "graphical-session.target" ];
-
-    serviceConfig = {
+    Unit = {
+      Description = "Quickshell UI";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+    Service = {
       ExecStart = "${pkgs.quickshell}/bin/quickshell --config /home/sayu/dotfiles/home-manager/quickshell/main.qml";
       Restart = "on-failure";
     };
   };
-
-  environment.systemPackages = [ pkgs.quickshell ];
 }
