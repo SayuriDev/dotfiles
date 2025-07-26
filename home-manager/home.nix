@@ -7,13 +7,13 @@
   pkgs,
   ...
 }: {
-
+  
   # You can import other home-manager modules here
   imports = [
     ./hyprland.nix
     ./fonts.nix
     ./kitty.nix
-    ./quickshell/quickshell.nix
+    # ./quickshell/quickshell.nix
   ];
   
   home = {
@@ -38,7 +38,7 @@
       firefox
       neofetch
       kitty
-      quickshell
+      inputs.astal.packages.${pkgs.system}.default
     ];
 
 

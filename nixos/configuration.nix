@@ -29,7 +29,6 @@
     home-manager
     gtk3
   ];
-
   nixpkgs.config.allowUnfree = true;
 
   nix = let
