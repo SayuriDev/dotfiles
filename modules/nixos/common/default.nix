@@ -1,24 +1,12 @@
 { inputs, lib, config, pkgs, ... }: {
-  imports = [
-    # You can split up your configuration and import pieces of it here:
-    # ./users.nix
-    ./hardware-configuration.nix
-    ./nvidia.nix
-    ./networking.nix
-];
 
-  programs.hyprland.enable = true;
+ imports = [
+  ./hardware-configuration.nix
+   ../desktop/gnome
+   ../drivers/nvidia
 
-  services.dbus.enable = true;
+  ];
 
-
-  # Required for Wayland
-  security.polkit.enable = true;
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-  };
   environment.systemPackages = with pkgs; 
   [
     git
@@ -27,7 +15,7 @@
     vim
     nix-ld
     home-manager
-    gtk3
+    killall
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -105,14 +93,19 @@
     #media-session.enable = true;
   };
 
-  # Helper
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 3";
-    flake = "/home/sayu/dotfiles"; # sets NH_OS_FLAKE variable for you
-  
-};
+  # Fonts
+  fonts.fontconfig.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-font-patcher
+    noto-fonts-color-emoji
+    hack-font
+    inter
+    corefonts
+    wineWow64Packages.fonts
+    google-fonts
+    noto-fonts
+  ];
+
 
   # Configure console keymap
   console.keyMap = "pl2";

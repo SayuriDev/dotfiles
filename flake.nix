@@ -19,16 +19,17 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs; };
         # > Our main nixos configuration file <
         modules = [
-          ./nixos/configuration.nix
+          ./modules/nixos/common/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.sayu = import ./home-manager/home.nix {
+            home-manager.users.sayu = import ./modules/home-manager/common {
               inherit inputs pkgs;
               lib = pkgs.lib;
               config = { };
