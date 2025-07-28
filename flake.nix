@@ -7,11 +7,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    astal.url = "github:Aylur/astal";
-    astal.inputs.nixpkgs.follows = "nixpkgs";
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
 };
 
-  outputs = { self, nixpkgs, home-manager, astal, ...} @ inputs: let
+  outputs = { self, nixpkgs, home-manager, quickshell, ...} @ inputs: let
     inherit (self) outputs;
     system = inputs.nixpkgs.system or "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
