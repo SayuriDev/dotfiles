@@ -105,6 +105,8 @@
     wineWow64Packages.fonts
     google-fonts
     noto-fonts
+    roboto
+    jetbrains-mono
   ];
 
 
