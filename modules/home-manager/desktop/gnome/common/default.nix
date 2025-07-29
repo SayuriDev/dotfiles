@@ -19,8 +19,11 @@
   space-bar
   just-perfection
   dash-to-dock
+  user-themes
+  rounded-window-corners-reborn
   ] ++ (with pkgs; [
   gnome-tweaks
+  orchis-theme
   ]);
 
   dconf = {
@@ -34,6 +37,8 @@
         space-bar.extensionUuid
         just-perfection.extensionUuid
         dash-to-dock.extensionUuid
+        user-themes.extensionUuid
+        rounded-window-corners-reborn.extensionUuid
       ];
     };
     settings."org/gnome/desktop/interface" = {
@@ -41,6 +46,38 @@
       font-antialiasing = "rgba"; 
       font-hinting = "slight";
       gtk-enable-primary-paste = false;
+      document-font-name = "Roboto 11";
+      monospace-font-name = "JetBrains Mono 11";
+
+    };
+  #  settings."org/gnome/shell/favorite-apps" = []
+      # "org.gnome.Nautilus.desktop" # FIXME: doesnt work
+      # "org.gnome.Terminal.desktop"
+      # "org.gnome.TextEditor.desktop"
+      # "org.gnome.Software.desktop"
+      # "org.gnome.Calculator.desktop"
+      # "org.gnome.Calendar.desktop"
+      # "org.gnome.Documents.desktop"
+      # "org.gnome.Photos.desktop"
+    #];
+    settings."org/gnome/shell/extensions/just-perfection" = {
+         quick-settings-dark-mode = false;
+         quick-settings-airplane-mode = false;
+         switcher-popup-delay = false;
+    };
+    settings."org/gnome/shell/extensions/dash-to-dock" = {
+      click-action = "focus-minimize-or-previews";
+      shift-click-action = "launch";
+      apply-custom-theme = true;
+      hot-keys = false;
+      show-show-apps-button = false;
+      show-trash = false;
+  };
+    settings."org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      style-dialags = 1;
     };
   };
 }
+
+
+# dconf watch /

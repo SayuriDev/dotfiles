@@ -13,7 +13,7 @@
     flavor = "mocha";
     accent = "lavender";
     enable = true; # Enable Catppuccin theme
-    gtk.enable = true;
+    gtk.enable = true; # Enable GTK theme
   };
 
 
@@ -21,16 +21,16 @@
     gtk = {
         enable = true;
         iconTheme = {
-            name = "Orchis";
-            package = pkgs.orchis-theme;
+            name = "Tela-dark";
+            package = pkgs.tela-icon-theme;
         };
         cursorTheme = {
-            name = "Bibata";
+            name = "Bibata-Modern-Classic";
             package = pkgs.bibata-cursors;
             size = 24; # Default cursor size
         };
         font = {
-            name = "Roboto";
+            name = "Inter";
             size = 11; # Default font size
         };
         gtk3 = {

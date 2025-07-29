@@ -16,7 +16,6 @@
     hitori # sudoku game
     iagno # go game
     tali # poker game
-    totem # video player
   ]);
 
   services = {

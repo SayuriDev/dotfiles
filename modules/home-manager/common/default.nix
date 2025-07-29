@@ -8,6 +8,8 @@
     ../desktop/gnome/common
     ../services/nh
     ../misc/gtk
+    ../misc/qt
+    ../misc/xdg
 
   ];
 
@@ -25,6 +27,7 @@
     [
       anki-bin
       nh
+      fastfetch
 
     ];
 
