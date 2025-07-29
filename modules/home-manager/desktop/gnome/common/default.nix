@@ -6,6 +6,19 @@
   ...
 }:
 {
+  imports = [
+    ../wallpaper
+  ];
+
+
+  home.packages = with pkgs.gnomeExtensions; [
+  system-monitor
+  blur-my-shell
+  tiling-shell
+  ] ++ (with pkgs; [
+  gnome-tweaks
+  ]);
+
   dconf = {
     enable = true;
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";

@@ -5,8 +5,9 @@
   ...
 }: {
   imports = [
-    ../desktop/gnome
+    ../desktop/gnome/common
     ../services/nh
+    ../misc/gtk
 
   ];
 
