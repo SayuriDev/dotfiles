@@ -3,7 +3,7 @@ config,
 ...}: {
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/sayu/dotfiles/modules/home-manager/desktop/gnome/wallpaper.png";
+      picture-uri-dark = "file:///home/sayu/dotfiles/modules/home-manager/desktop/gnome/wallpaper/wallpaper.png";
     };
    };
   }
