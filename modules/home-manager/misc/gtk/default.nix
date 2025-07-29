@@ -3,11 +3,11 @@
     gtk = {
         # enable = true;
         # iconTheme = {
-        #     name = "#TODO:"
+        #     name = "#FIXME:"
         #     package = ;
         # };
         # cursorTheme = {
-        #     name = "#TODO:"
+        #     name = "#FIXME:"
         #     package = ;
         #     size = 24; # Default cursor size
         # };
@@ -35,5 +35,5 @@
     };
 
 
-   # <theme>.gtk.enable = true; # Enable GTK theme TODO: 
+   # <theme>.gtk.enable = true; # Enable GTK theme FIXME: 
 }

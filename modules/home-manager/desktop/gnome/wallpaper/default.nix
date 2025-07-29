@@ -3,8 +3,7 @@ config,
 ...}: {
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-url = "file://./wallpaper.png";
-      picture-options = " 'zoom' ";
+      picture-uri = "file://./wallpaper.png";
     };
    };
   }
