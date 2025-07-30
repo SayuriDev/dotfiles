@@ -15,9 +15,15 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, stylix, ... }@inputs:
     let
       inherit (self) outputs;
     in {
@@ -29,15 +35,22 @@
             ./modules/nixos/common
             catppuccin.nixosModules.catppuccin
 
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+
               home-manager.extraSpecialArgs = { inherit inputs outputs; };
               home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common
                   catppuccin.homeModules.catppuccin
+                  stylix.homeModules.stylix
+
+                  inputs.spicetify-nix.homeManagerModules.default
+
                 ];
               };
             }

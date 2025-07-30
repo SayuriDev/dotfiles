@@ -13,7 +13,9 @@
     ../programs/bottles
     ../programs/prismlauncher
     ../programs/vscode
-    ../programs/vesktop
+    ../programs/discord
+    ../programs/spotify
+    ../misc/stylix
 
   ];
 

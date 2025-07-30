@@ -74,8 +74,8 @@
     settings."org/gnome/shell/extensions/blur-my-shell/appfolder" = {
       style-dialags = 1;
     };
+    settings."org/gnome/desktop/notifications/application/spotify" = { enable = false; };
   };
 }
-
 
 # dconf watch /

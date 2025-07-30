@@ -16,6 +16,7 @@ in
   programs.firefox = {
     package = pkgs.firefox;
     enable = true;
+    policies.ExtensionSettings = {"*".installation_mode = "allowed";};
 
     profiles.default = {
       id = 0;
@@ -30,6 +31,7 @@ in
 
       settings = {
         # General
+        "extensions.autoDisableScopes" = 0; # do not disable extensions installed by home-manager
         "intl.accept_languages" = "en-US,en";
         "browser.startup.page" = 3; # Resume previous session on startup
         "browser.aboutConfig.showWarning" = false;
@@ -37,9 +39,6 @@ in
         "browser.download.useDownloadDir" = false;
         "browser.translations.neverTranslateLanguages" = "pl";
         "privacy.clearOnShutdown.history" = false;
-
-        # Hi-DPI
-        "layout.css.devPixelsPerPx" = "1.5";
 
         # Allow executing JS in the dev console
         "devtools.chrome.enabled" = true;
@@ -126,6 +125,7 @@ in
           darkreader
           bitwarden
           youtube-shorts-block
+          tabliss
         ];
       };
     };
