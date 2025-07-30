@@ -71,10 +71,9 @@
       show-show-apps-button = false;
       show-trash = false;
   };
-    settings."org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-      style-dialags = 1;
-    };
-    settings."org/gnome/desktop/notifications/application/spotify" = { enable = false; };
+    settings."org/gnome/shell/extensions/blur-my-shell/appfolder" = {  style-dialags = 1; };
+    settings."org/gnome/desktop/notifications/application/spotify" = { enable = false; }; # disable annyoing spotify notification
+    settings."org/gnome/desktop/input-sources" = { sources = "[('xkb', 'pl'), ('xkb', 'us')]"; };
   };
 }
 
