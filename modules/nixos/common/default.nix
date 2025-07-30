@@ -4,6 +4,8 @@
   ./hardware-configuration.nix
    ../desktop/gnome
    ../drivers/nvidia
+   ../programs/steam
+   ../services/nh
 
 
   ];

@@ -10,6 +10,11 @@
     };
 
     catppuccin.url = "github:Catppuccin/nix";
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin, ... }@inputs:
@@ -23,11 +28,13 @@
           modules = [
             ./modules/nixos/common
             catppuccin.nixosModules.catppuccin
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.sayu = {
+              home-manager.extraSpecialArgs = { inherit inputs outputs; };
+              home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common
                   catppuccin.homeModules.catppuccin

@@ -20,7 +20,6 @@
   just-perfection
   dash-to-dock
   user-themes
-  rounded-window-corners-reborn
   ] ++ (with pkgs; [
   gnome-tweaks
   orchis-theme
@@ -38,7 +37,6 @@
         just-perfection.extensionUuid
         dash-to-dock.extensionUuid
         user-themes.extensionUuid
-        rounded-window-corners-reborn.extensionUuid
       ];
     };
     settings."org/gnome/desktop/interface" = {

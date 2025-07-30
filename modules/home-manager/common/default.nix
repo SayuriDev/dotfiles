@@ -6,10 +6,14 @@
 }: {
   imports = [
     ../desktop/gnome/common
-    ../services/nh
     ../misc/gtk
     ../misc/qt
     ../misc/xdg
+    ../programs/firefox
+    ../programs/bottles
+    ../programs/prismlauncher
+    ../programs/vscode
+    ../programs/vesktop
 
   ];
 
