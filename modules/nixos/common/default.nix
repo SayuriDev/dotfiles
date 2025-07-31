@@ -2,7 +2,7 @@
 
  imports = [
   ./hardware-configuration.nix
-   ../desktop/gnome
+   ../desktop/hyprland
    ../drivers/nvidia
    ../programs/steam
    ../programs/virtualbox

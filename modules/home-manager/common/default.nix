@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../desktop/gnome/common
+    ../desktop
     ../misc/gtk
     ../misc/qt
     ../misc/xdg
@@ -35,6 +35,7 @@
       anki-bin
       nh
       fastfetch
+      libreoffice
 
     ];
 

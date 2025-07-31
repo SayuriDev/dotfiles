@@ -24,15 +24,15 @@
             name = "Tela-dark";
             package = pkgs.tela-icon-theme;
         };
-        cursorTheme = {
-            name = "Bibata-Modern-Classic";
-            package = pkgs.bibata-cursors;
-            size = 24; # Default cursor size
-        };
-        font = {
-            name = "Inter";
-            size = 11; # Default font size
-        };
+        # cursorTheme = {
+        #     name = "Bibata-Modern-Classic";
+        #     package = pkgs.bibata-cursors;
+        #     size = 24; # Default cursor size
+        # };
+        # font = {
+        #     name = "Inter";
+        #     size = 11; # Default font size
+        # };
         gtk3 = {
             bookmarks = [
                 file:///home/sayu/Documents

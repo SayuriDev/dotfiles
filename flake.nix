@@ -21,9 +21,15 @@
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+     plasma-manager = {
+     url = "github:nix-community/plasma-manager";
+     inputs.nixpkgs.follows = "nixpkgs";
+     inputs.home-manager.follows = "home-manager";
+    };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, stylix, plasma-manager, ... }@inputs:
     let
       inherit (self) outputs;
     in {
@@ -48,7 +54,8 @@
                   ./modules/home-manager/common
                   catppuccin.homeModules.catppuccin
                   stylix.homeModules.stylix
-
+                  
+                  inputs.plasma-manager.homeManagerModules.plasma-manager
                   inputs.spicetify-nix.homeManagerModules.default
 
                 ];
