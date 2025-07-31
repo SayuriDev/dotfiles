@@ -5,6 +5,7 @@
    ../desktop/gnome
    ../drivers/nvidia
    ../programs/steam
+   ../programs/virtualbox
    ../services/nh
 
 
