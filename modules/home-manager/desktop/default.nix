@@ -5,13 +5,13 @@
   ...
 }: {
   imports = [
-    "../misc/gtk"
-    "../misc/wallpaper"
-    "../misc/xdg"
-    "../programs/wofi"
-    "../services/cliphist"
-    "../services/swaync"
-    "../services/waybar"
+    ../misc/gtk
+    ../misc/wallpaper
+    ../misc/xdg
+    ../programs/wofi
+    ../services/cliphist
+    ../services/swaync
+    ../services/waybar
   ];
 
   # Consistent cursor theme across all applications.

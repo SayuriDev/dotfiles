@@ -7,6 +7,7 @@
   imports = [
     ../desktop
     ../misc/gtk
+    ../misc/catppuccin
     ../misc/qt
     ../misc/xdg
     ../programs/firefox
@@ -36,7 +37,7 @@
       nh
       fastfetch
       libreoffice
-
+      kitty
     ];
 
 

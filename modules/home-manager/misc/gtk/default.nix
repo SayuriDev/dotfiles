@@ -9,21 +9,16 @@
 #    catppuccin.gtk.enable = true;
 #    catppuccin.enable = true;
 #   # Catpuccin flavor and accent
-  catppuccin = {
-    flavor = "mocha";
-    accent = "lavender";
-    enable = true; # Enable Catppuccin theme
-    gtk.enable = true; # Enable GTK theme
-  };
+
 
 
 
     gtk = {
         enable = true;
-        iconTheme = {
-            name = "Tela-dark";
-            package = pkgs.tela-icon-theme;
-        };
+        # iconTheme = {
+        #     name = "Tela-dark";
+        #     package = pkgs.tela-icon-theme;
+        # };
         # cursorTheme = {
         #     name = "Bibata-Modern-Classic";
         #     package = pkgs.bibata-cursors;

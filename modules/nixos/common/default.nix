@@ -110,7 +110,8 @@
     noto-fonts
     roboto
     jetbrains-mono
-  ];
+    font-awesome
+];
 
 
   # Configure console keymap
