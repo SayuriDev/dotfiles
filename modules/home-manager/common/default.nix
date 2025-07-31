@@ -15,6 +15,7 @@
     ../programs/vscode
     ../programs/discord
     ../programs/spotify
+    ../programs/btop
     ../misc/stylix
 
   ];
