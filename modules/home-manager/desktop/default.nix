@@ -4,24 +4,23 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [ hyprpaper ];
   imports = [
-    ../misc/gtk
     ../misc/wallpaper
-    ../misc/xdg
     ../programs/wofi
     ../services/cliphist
-    ../services/swaync
     ../services/waybar
+
   ];
 
   # Consistent cursor theme across all applications.
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.yaru-theme;
-    name = "Yaru";
-    size = 24;
-  };
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  #   package = pkgs.yaru-theme;
+  #   name = "Yaru";
+  #   size = 24;
+  # };
 
   # Source hyprland config from the home-manager store
   xdg.configFile = {
@@ -68,12 +67,12 @@
       "window-maximized" = false;
     };
 
-    "org/gnome/desktop/interface" = {
-      "color-scheme" = "prefer-dark";
-      "cursor-theme" = "Yaru";
-      "font-name" = "Roboto 11";
-      "icon-theme" = "Tela-circle-dark";
-    };
+    # "org/gnome/desktop/interface" = {
+    #   "color-scheme" = "prefer-dark";
+    #   "cursor-theme" = "Yaru";
+    #   "font-name" = "Roboto 11";
+    #   "icon-theme" = "Tela-circle-dark";
+    # };
 
     "org/gnome/desktop/wm/preferences" = {
       "button-layout" = lib.mkForce "";

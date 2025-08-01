@@ -20,6 +20,7 @@
     nix-ld
     home-manager
     killall
+    lm_sensors
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -51,7 +52,7 @@
     };
   };
 
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
   programs.nix-ld.enable = true;
 
   # Bootloader.
@@ -97,21 +98,6 @@
     #media-session.enable = true;
   };
 
-  # Fonts
-  fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-font-patcher
-    noto-fonts-color-emoji
-    hack-font
-    inter
-    corefonts
-    wineWow64Packages.fonts
-    google-fonts
-    noto-fonts
-    roboto
-    jetbrains-mono
-    font-awesome
-];
 
 
   # Configure console keymap

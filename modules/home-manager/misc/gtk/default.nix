@@ -6,24 +6,18 @@
   ...
 }:
 {
-#    catppuccin.gtk.enable = true;
-#    catppuccin.enable = true;
-#   # Catpuccin flavor and accent
-
-
-
 
     gtk = {
         enable = true;
-        # iconTheme = {
-        #     name = "Tela-dark";
-        #     package = pkgs.tela-icon-theme;
-        # };
-        # cursorTheme = {
-        #     name = "Bibata-Modern-Classic";
-        #     package = pkgs.bibata-cursors;
-        #     size = 24; # Default cursor size
-        # };
+        iconTheme = {
+            name = "Tela-dark";
+            package = pkgs.tela-icon-theme;
+        };
+        cursorTheme = {
+            name = "Bibata-Modern-Classic";
+            package = pkgs.bibata-cursors;
+            size = 24; # Default cursor size
+        };
         # font = {
         #     name = "Inter";
         #     size = 11; # Default font size

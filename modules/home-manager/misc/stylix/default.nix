@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, inputs, ...}:
 {
     stylix.base16Scheme = {
         base00 = "#1e1e2e"; # base
@@ -18,5 +18,14 @@
         base0E = "#cba6f7"; # mauve
         base0F = "#f2cdcd"; # flamingo
     };
+
+    stylix.enable = true;
+    stylix.targets.waybar.enable = false;
     stylix.polarity = "dark";
+
+    stylix.cursor = {
+        name = "Bibata-Modern-Classic";
+        package = pkgs.bibata-cursors;
+        size = 24;
+    };
 }

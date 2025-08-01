@@ -6,18 +6,18 @@
 }: {
   imports = [
     ../desktop
-    ../misc/gtk
     ../misc/catppuccin
-    ../misc/qt
-    ../misc/xdg
     ../programs/firefox
     ../programs/bottles
     ../programs/prismlauncher
     ../programs/vscode
     ../programs/discord
     ../programs/spotify
+    ../programs/kitty
     ../programs/btop
     ../misc/stylix
+    ../misc/fonts
+    ../misc/gtk
 
   ];
 
@@ -34,10 +34,11 @@
   home.packages = with pkgs;
     [
       anki-bin
-      nh
       fastfetch
       libreoffice
-      kitty
+      unzip
+      pavucontrol
+      playerctl
     ];
 
 

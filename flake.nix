@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:Catppuccin/nix";
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +21,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       inherit (self) outputs;
     in {
@@ -33,7 +31,7 @@
           system = "x86_64-linux";
           modules = [
             ./modules/nixos/common
-            catppuccin.nixosModules.catppuccin
+            stylix.nixosModules.stylix
 
 
             home-manager.nixosModules.home-manager
@@ -46,7 +44,6 @@
               home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common
-                  catppuccin.homeModules.catppuccin
                   stylix.homeModules.stylix
                   
                   inputs.spicetify-nix.homeManagerModules.default
