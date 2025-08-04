@@ -39,6 +39,9 @@
       unzip
       pavucontrol
       playerctl
+      anydesk
+      kdePackages.xwaylandvideobridge
+      flameshot
     ];
 
 
