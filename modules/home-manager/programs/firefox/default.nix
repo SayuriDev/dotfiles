@@ -4,34 +4,19 @@
   config,
   ...
 }:
-let
-  betterfox = pkgs.fetchFromGitHub {
-    owner = "yokoffing";
-    repo = "Betterfox";
-    rev = "140.0";
-    hash = "sha256-gHFA/1PeQ0iNAcjATGwgJOqRlR9YmxD/RJKkYN36QYA=";
-  };
-in
 {
   programs.firefox = {
     package = pkgs.firefox;
     enable = true;
     policies.ExtensionSettings = {"*".installation_mode = "allowed";};
-
     profiles.default = {
       id = 0;
       isDefault = true;
 
-      extraConfig = builtins.concatStringsSep "\n" [
-        (builtins.readFile "${betterfox}/Securefox.js")
-        (builtins.readFile "${betterfox}/Fastfox.js")
-        (builtins.readFile "${betterfox}/Peskyfox.js")
-        (builtins.readFile "${betterfox}/Smoothfox.js")
-      ];
-
       settings = {
         # General
         "extensions.autoDisableScopes" = 0; # do not disable extensions installed by home-manager
+        
         "intl.accept_languages" = "en-US,en";
         "browser.startup.page" = 3; # Resume previous session on startup
         "browser.aboutConfig.showWarning" = false;
@@ -119,7 +104,7 @@ in
 
       extensions = {
         force = true;
-        packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           sponsorblock
           darkreader
@@ -131,12 +116,6 @@ in
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/html" = [ "firefox.desktop" ];
-    "text/xml" = [ "firefox.desktop" ];
-    "x-scheme-handler/http" = [ "firefox.desktop" ];
-    "x-scheme-handler/https" = [ "firefox.desktop" ];
-  };
 
   # home.persistence."/state".directories = [
   #   ".cache/mozilla"

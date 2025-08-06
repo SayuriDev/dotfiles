@@ -7,21 +7,30 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "hyprland/window"
+
     ],
     "modules-center": [
-        "hyprland/window"
+        "custom/playerctl"
     ],
     "modules-right": [
-        "pulseaudio",
-        "network",
-        "cpu",
+        "tray",
+        "group/audio_group",
+        "group/cpu_group",
         "memory",
-        "temperature",
-        "hyprland/language",
+        "network",
         "clock"
     ],
-    //Modules configuration
+
+    "group/audio_group": {
+        "orientation": "horizontal",
+        "modules": ["pulseaudio", "pulseaudio#mic"]
+    },
+    "group/cpu_group": {
+        "orientation": "horizontal",
+        "modules": ["temperature", "cpu"]
+    },
 
     "include": [
 		"~/.config/waybar/modules.json"

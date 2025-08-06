@@ -1,15 +1,16 @@
+@import "colors.css";
+
 * {
     /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
-    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif, "SpaceMono Nerd Font Propo";
     font-size: 15px;
     transition: background-color .3s ease-out;
 }
-
 window#waybar {
-    background: rgba(26, 27, 38, 0.75);
-    color: #c0caf5;
+    background: alpha(@base02, 0.7);
+    color: @base05;
     font-family: 
-        SpaceMono Nerd Font,
+        SpaceMono Nerd Font Propo,
         feather;
     transition: background-color .5s;
 }
@@ -17,12 +18,6 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right
-{
-    background: rgba(0, 0, 8, .7);
-    margin: 5px 10px;
-    padding: 0 5px;
-    border-radius: 15px;
-}
 .modules-left {
     padding: 0;
 }
@@ -30,50 +25,79 @@ window#waybar {
     padding: 0 10px;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#language,
-#mpd {
-    padding: 0 10px;
+#custom-playerctl {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#clock {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#memory {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#network {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
     border-radius: 15px;
 }
 
-#clock:hover,
-#battery:hover,
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#temperature:hover,
-#backlight:hover,
-#network:hover,
-#pulseaudio:hover,
-#wireplumber:hover,
-#custom-media:hover,
-#tray:hover,
-#mode:hover,
-#idle_inhibitor:hover,
-#scratchpad:hover,
-#power-profiles-daemon:hover,
-#language:hover,
-#mpd:hover {
-    background: rgba(26, 27, 38, 0.9);
+#cpu_group {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#temperature {
+    padding-right: 10px;
+}
+#cpu {
+    margin-left: 0;
+    padding: 0;
+}
+
+#audio_group {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#pulseaudio {
+    padding-right: 10px;
+}
+#pulseaudio.mic {
+    margin-left: 0;
+    padding: 0;
 }
 
 
+
+#tray {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#window {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#workspaces {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
 #workspaces button {
   background: transparent;
   font-family:

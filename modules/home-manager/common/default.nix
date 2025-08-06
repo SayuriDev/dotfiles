@@ -6,7 +6,7 @@
 }: {
   imports = [
     ../desktop
-    ../misc/catppuccin
+    ../misc/xdg
     ../programs/firefox
     ../programs/bottles
     ../programs/prismlauncher
@@ -41,7 +41,6 @@
       playerctl
       anydesk
       kdePackages.xwaylandvideobridge
-      flameshot
     ];
 
 
