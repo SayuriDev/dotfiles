@@ -1,40 +1,53 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, lib, ... }:
+let
+  # Remove "#" before hex colors
+  stripHash = color: builtins.replaceStrings ["#"] [""] color;
+  stylixColor = config.stylix.base16Scheme;
+  noHash = builtins.mapAttrs (_: colorValue: stripHash colorValue) stylixColor;
+in {
+  # Declare noHash option
+  options.stylix.noHash = lib.mkOption {
+    type = lib.types.attrsOf lib.types.str;
+    description = "Stylix base16 without hashtags";
+    readOnly = true;
+  };
 
-{
-  stylix = {
+  # Stylix config
+  config = {
+    stylix.noHash = noHash;
 
-    enable = true;
-    polarity = "dark";
+    stylix = {
+      enable = true;
+      polarity = "dark";
 
-    targets.waybar.enable = false;
+      targets.waybar.enable = false;
+      targets.zen-browser.profileNames = ["default"];
 
-    targets.zen-browser.profileNames = ["default"];
+      base16Scheme = {
+        base00 = "#1e1e2e"; # base
+        base01 = "#181825"; # mantle
+        base02 = "#313244"; # surface0
+        base03 = "#45475a"; # surface1
+        base04 = "#585b70"; # surface2
+        base05 = "#cdd6f4"; # text
+        base06 = "#f5e0dc"; # rosewater
+        base07 = "#b4befe"; # lavender
+        base08 = "#f38ba8"; # red
+        base09 = "#fab387"; # peach
+        base0A = "#f9e2af"; # yellow
+        base0B = "#a6e3a1"; # green
+        base0C = "#94e2d5"; # teal
+        base0D = "#89b4fa"; # blue
+        base0E = "#cba6f7"; # mauve
+        base0F = "#f2cdcd"; # flamingo
+      };
 
-
-
-    base16Scheme = {
-      base00 = "#1e1e2e"; # base
-      base01 = "#181825"; # mantle
-      base02 = "#313244"; # surface0
-      base03 = "#45475a"; # surface1
-      base04 = "#585b70"; # surface2
-      base05 = "#cdd6f4"; # text
-      base06 = "#f5e0dc"; # rosewater
-      base07 = "#b4befe"; # lavender
-      base08 = "#f38ba8"; # red
-      base09 = "#fab387"; # peach
-      base0A = "#f9e2af"; # yellow
-      base0B = "#a6e3a1"; # green
-      base0C = "#94e2d5"; # teal
-      base0D = "#89b4fa"; # blue
-      base0E = "#cba6f7"; # mauve
-      base0F = "#f2cdcd"; # flamingo
+      cursor = {
+        name = "Bibata-Modern-Classic";
+        package = pkgs.bibata-cursors;
+        size = 24;
+      };
     };
 
-    cursor = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
   };
 }

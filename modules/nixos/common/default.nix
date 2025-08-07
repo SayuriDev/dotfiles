@@ -7,6 +7,7 @@
    ../programs/steam
    ../programs/virtualbox
    ../services/nh
+   ../firewall
 
 
   ];

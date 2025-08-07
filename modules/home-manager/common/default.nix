@@ -41,6 +41,9 @@
       playerctl
       anydesk
       kdePackages.xwaylandvideobridge
+      kdePackages.gwenview
+      kdePackages.dolphin
+      mpv
     ];
 
 

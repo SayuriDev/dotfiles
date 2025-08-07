@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # firefox-addons = {
-    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -22,9 +17,13 @@
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixcord.url = "github:kaylorben/nixcord";
+
+    nix-colorizer.url = "github:nutsalhan87/nix-colorizer";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, nur, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, nur, nix-colorizer, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -43,12 +42,12 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
 
-              home-manager.extraSpecialArgs = { inherit inputs outputs; };
+              home-manager.extraSpecialArgs = { inherit inputs outputs nix-colorizer; };
               home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common
                   stylix.homeModules.stylix
-                  
+                  inputs.nixcord.homeModules.nixcord
                   inputs.spicetify-nix.homeManagerModules.default
 
                 ];
