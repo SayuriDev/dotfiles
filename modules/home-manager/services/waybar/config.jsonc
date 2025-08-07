@@ -20,7 +20,8 @@
         "group/cpu_group",
         "memory",
         "network",
-        "clock"
+        "clock",
+        "custom/notification"
     ],
 
     "group/audio_group": {
