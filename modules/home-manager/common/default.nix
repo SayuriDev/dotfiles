@@ -44,6 +44,8 @@
       kdePackages.gwenview
       kdePackages.dolphin
       mpv
+      clipse
+      gparted
     ];
 
 

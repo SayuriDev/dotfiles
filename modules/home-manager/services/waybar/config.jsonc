@@ -20,9 +20,8 @@
         "group/cpu_group",
         "memory",
         "network",
-        "clock",
-        "custom/notification"
-    ],
+        "clock" 
+       ],
 
     "group/audio_group": {
         "orientation": "horizontal",

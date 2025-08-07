@@ -18,10 +18,19 @@ in {
 
     stylix = {
       enable = true;
+      autoEnable = true;
       polarity = "dark";
+      # opacity = {  # doesnt work on hyprland. yet? 
+      #   terminal = 0.9;
+      #   popups = 0.9;
+      #   desktop = 0.9;
+      #   applications = 0.9;
+      # };
 
       targets.waybar.enable = false;
+      targets.swaync.enable = false;
       targets.zen-browser.profileNames = ["default"];
+  
 
       base16Scheme = {
         base00 = "#1e1e2e"; # base

@@ -10,9 +10,9 @@ in {
   imports = [
     ../misc/wallpaper
     ../programs/wofi
-    ../services/cliphist
     ../services/waybar
     ../services/swaync
+    ../services/gnome-keyring
 
 
   ];
@@ -29,9 +29,9 @@ monitor=,highres,auto,1 #, bitdepth, 10
 exec-once = hyprpaper
 exec-once = gnome-keyring-daemon --start --components=secrets
 exec-once = nm-applet --indicator
-exec-once = wl-paste --watch cliphist store
-exec-once = kdeconnect-indicator
-exec = pkill waybar && waybar
+exec-once = clipse -listen
+# exec-once = kdeconnect-indicator
+exec = killall waybar && waybar
 
 # Autostart desktop apps
 exec-once = vesktop
@@ -192,6 +192,11 @@ bind = , PRINT, exec, hyprshot -m output
 bind = $shiftMod, PRINT, exec, hyprshot -m region
 
 
+bind = SHIFT, V, exec, kitty --class clipse -e 'clipse' 
+
+windowrule = float,class:^(clipse)$ # ensure you have a floating window class set if you want this behavior
+windowrule = size 652 652,class:^(clipse)$ # set the size of the window as necessary
+
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 # See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
 
@@ -316,6 +321,7 @@ windowrule = opacity 0.82 0.75, class:^(gnome-system-monitor|org.gnome.SystemMon
 windowrule = opacity 0.9 0.8, class:^(xdg-desktop-portal-gtk)$ # gnome-keyring GUI
 windowrule = opacity 0.9 0.7, class:^([Ww]hatsapp-for-linux)$
 windowrule = opacity 0.95 0.75, title:^(Picture-in-Picture)$
+windowrule = opacity 0.9 0.9 class:^([RrWw]ofi)$
 
 # Window Size Rules
 windowrule = size 70% 70%, class:^(gnome-system-monitor|org.gnome.SystemMonitor)$

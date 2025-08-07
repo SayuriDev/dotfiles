@@ -40,12 +40,12 @@ body {
     --window-control-size: 14px; /* size of custom window controls */
 
     /* dms button options */
-    --custom-dms-icon: hide; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --custom-dms-icon: off; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
     --dms-icon-svg-url: url(''); /* icon svg url. MUST BE A SVG. */
     --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
     --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
     --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
-    --custom-dms-background: image; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
     --dms-background-image-url: url('https://raw.githubusercontent.com/catppuccin/catppuccin/refs/heads/main/assets/logos/exports/macchiato_square.png'); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
     --dms-background-color: linear-gradient(70deg, var(--blue), var(--purple), var(--red)); /* fixed color/gradient (css background property) */
@@ -57,8 +57,8 @@ body {
     /* transparency/blur options */
     /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
     --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
-    --panel-blur: off; /* off: no changes, on: blur the background of panels */
+    --remove-bg-layer: on; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: on; /* off: no changes, on: blur the background of panels */
     --blur-amount: 12px; /* amount of blur */
     --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
@@ -66,12 +66,12 @@ body {
     --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
 
     /* unrounding options */
-    --unrounding: on; /* off: default, on: remove rounded corners from panels */
+    --unrounding: off; /* off: default, on: remove rounded corners from panels */
 
     /* styling options */
     --custom-spotify-bar: on; /* off: default, on: custom text-like spotify progress bar */
     --ascii-titles: on; /* off: default, on: use ascii font for titles at the start of a channel */
-    --ascii-loader: system24; /* off: default, system24: use system24 ascii loader, cats: use cats loader */
+    --ascii-loader: cats; /* off: default, system24: use system24 ascii loader, cats: use cats loader */
 
     /* panel labels */
     --panel-labels: on; /* off: default, on: add labels to panels */
@@ -83,41 +83,24 @@ body {
 :root {
     --colors: on; /* off: discord default colors, on: midnight custom colors */
 
-    /* text colors */
-    --text-0: var(--bg-3); /* text on colored elements */
-    --text-1: hsl(226, 64%, 95%); /* other normally white text */
-    --text-2: ${colors.base05}; /* headings and important text */
-    --text-3: ${hex.darken colors.base05 0.25}; /* normal text */
-    --text-4: ${colors.base04}; /* icon buttons and channels */
-    --text-5: ${hex.darken colors.base04 0.12}; /* muted channels/chats and timestamps */
-
     /* background and dark colors */
-    --bg-1: ${colors.base03}; /* dark buttons when clicked */
-    --bg-2: ${colors.base02}; /* dark buttons */
-    --bg-3: ${colors.base01}; /* spacing, secondary elements */
-    --bg-4: ${colors.base00}; /* main background color */
+    --bg-1: ${colors.base03}CC; /* dark buttons when clicked */
+    --bg-2: ${colors.base02}CC; /* dark buttons */
+    --bg-3: ${colors.base01}CC; /* spacing, secondary elements */
+    --bg-4: ${colors.base00}CC; /* main background color */
     --hover: ${colors.base04}1a; /* channels and buttons when hovered */
     --active: ${colors.base04}33; /* channels and buttons when clicked or selected */
     --active-2: ${colors.base04}4d; /* extra state for transparent buttons */
     --message-hover: hsla(0, 0%, 0%, 0.10); /* messages when hovered */
 
     /* accent colors */
-    --accent-1: var(--purple-1); /* links and other accent text */
-    --accent-2: var(--purple-2); /* small accent elements */
-    --accent-3: var(--purple-3); /* accent buttons */
-    --accent-4: var(--purple-4); /* accent buttons when hovered */
-    --accent-5: var(--purple-5); /* accent buttons when clicked */
-    --accent-new: var(--accent-2); /* stuff that's normally red like mute/deafen buttons */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --accent-2: var(--purple);
 
     /* status indicator colors */
     --online: var(--green); /* change to #43a25a for default */
     --dnd: var(--red); /* change to #d83a42 for default */
     --idle: var(--yellow); /* change to #ca9654 for default */
-    --streaming: var(--purple-2); /* change to #593695 for default */
+    --streaming: var(--purple); /* change to #593695 for default */
     --offline: var(--text-4); /* change to #83838b for default offline color */
 
     /* border colors */
@@ -131,16 +114,12 @@ body {
     --green: ${colors.base0B};
     --blue: ${colors.base0D};
     --yellow: ${colors.base0A};
-
-    --purple1: ${hex.darken colors.base0E 0.5};
-    --purple2: ${colors.base0E};
-    --purple3: ${colors.base0E};
-    --purple4: ${hex.lighten colors.base0E 0.10};
-    --purple5: ${hex.lighten colors.base0E 0.15};
+    --purple: ${colors.base0E};
 }
-";  # quickCSS file
+";
     config = {
-      useQuickCss = true;   # use out quickCSS
+      useQuickCss = true;
+      transparent = true;
       # themeLinks = [        # or use an online theme
       #   "https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/system24-catppuccin-mocha.theme.css"
       # ];

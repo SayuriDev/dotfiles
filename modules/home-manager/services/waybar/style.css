@@ -129,8 +129,3 @@ window#waybar {
 #custom-arch:hover {
     color: #1793d1;
 }
-
-#custom-notification span#notification {
-    color: red;
-    background-color: red;
-}
