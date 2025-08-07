@@ -192,7 +192,7 @@ bind = , PRINT, exec, hyprshot -m output
 bind = $shiftMod, PRINT, exec, hyprshot -m region
 
 
-bind = SHIFT, V, exec, kitty --class clipse -e 'clipse' 
+bind = $shiftMod, V, exec, kitty --class clipse -e 'clipse' 
 
 windowrule = float,class:^(clipse)$ # ensure you have a floating window class set if you want this behavior
 windowrule = size 652 652,class:^(clipse)$ # set the size of the window as necessary
@@ -313,7 +313,7 @@ windowrule = opacity 0.9 0.7, class:^(com.obsproject.Studio)$
 windowrule = opacity 0.9 0.7, class:^([Aa]udacious)$
 windowrule = opacity 0.9 0.8, class:^(VSCode|code-url-handler)$
 windowrule = opacity 0.9 0.8, class:^(jetbrains-.+)$ # JetBrains IDEs
-windowrule = opacity 0.93 0.89, class:^([Dd]iscord|[Vv]esktop)$
+windowrule = opacity 0.96 0.93, class:^([Dd]iscord|[Vv]esktop)$
 windowrule = opacity 0.93 0.89, class:^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$
 windowrule = opacity 0.8 0.7, class:^(app.drey.Warp)$ # Warp File Transfer
 windowrule = opacity 0.9 0.8, class:^(seahorse)$ # gnome-keyring GUI
