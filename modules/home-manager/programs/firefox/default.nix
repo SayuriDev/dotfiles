@@ -17,7 +17,7 @@
         # General
         "extensions.autoDisableScopes" = 0; # do not disable extensions installed by home-manager
         
-        "intl.accept_languages" = "en-US,en";
+        "intl.accept_languages" = "pl,en-US,en";
         "browser.startup.page" = 3; # Resume previous session on startup
         "browser.aboutConfig.showWarning" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = false; 
