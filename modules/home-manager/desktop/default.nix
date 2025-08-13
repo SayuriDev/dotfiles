@@ -12,8 +12,6 @@ in {
     ../programs/wofi
     ../services/waybar
     ../services/swaync
-    ../services/gnome-keyring
-
 
   ];
   home.packages = with pkgs; [ 
@@ -26,12 +24,12 @@ in {
 ''
 monitor=,highres,auto,1 #, bitdepth, 10
 
-exec-once = hyprpaper
+exec-once = waybar
+exec-once = hyprpaper  
 exec-once = gnome-keyring-daemon --start --components=secrets
-exec-once = nm-applet --indicator
 exec-once = clipse -listen
+# exec-once = nm-applet --indicator
 # exec-once = kdeconnect-indicator
-exec = killall waybar && waybar
 
 # Autostart desktop apps
 exec-once = vesktop
@@ -122,23 +120,15 @@ device {
 
 # See https://wiki.hyprland.org/Configuring/Keywords/
 $mainMod = SUPER # Sets "Windows" key as main modifier
-$shiftMod = SHIFT_SUPER 
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, exec, kitty
-bind = $mainMod_SHIFT, Q, killactive,
-bind = $mainMod_SHIFT, M, exit,
-bind = $mainMod, E, exec, $fileManager
+bind = $mainMod SHIFT, Q, killactive,
+bind = $mainMod, E, exec, dolphin
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, wofi --drun
 bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod, J, togglesplit, # dwindle
-
-# Move focus with mainMod + arrow keys
-bind = $mainMod, left, movefocus, l
-bind = $mainMod, right, movefocus, r
-bind = $mainMod, up, movefocus, u
-bind = $mainMod, down, movefocus, d
+bind = $mainMod, N, togglesplit, # dwindle
 
 # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
@@ -168,13 +158,28 @@ bind = $mainMod SHIFT, 0, movetoworkspace, 10
 bind = $mainMod, S, togglespecialworkspace, magic
 bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
-# Scroll through existing workspaces with mainMod + scroll
-bind = $mainMod, mouse_down, workspace, e+1
-bind = $mainMod, mouse_up, workspace, e-1
-
 # Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
+
+# Move windows
+bind = $mainMod SHIFT, H, movewindow, l
+bind = $mainMod SHIFT, L, movewindow, r
+bind = $mainMod SHIFT, K, movewindow, u
+bind = $mainMod SHIFT, J, movewindow, d 
+
+# Resize windows
+binde = $mainMod, H, resizeactive, -10 0
+binde = $mainMod, L, resizeactive, 10 0
+binde = $mainMod, K, resizeactive, 0 -10
+binde = $mainMod, J, resizeactive, 0 10
+
+# Move focus with mainMod + arrow keys
+bind = $mainMod CTRL, h, movefocus, l
+bind = $mainMod CTRL, l, movefocus, r
+bind = $mainMod CTRL, k, movefocus, u
+bind = $mainMod CTRL, j, movefocus, d
+
 
 # Audio controls
 bindel =, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 5%+
@@ -189,37 +194,21 @@ bind = $mainMod, PRINT, exec, hyprshot -m window
 # Screenshot a monitor
 bind = , PRINT, exec, hyprshot -m output
 # Screenshot a region
-bind = $shiftMod, PRINT, exec, hyprshot -m region
+bind = $mainMod SHIFT, PRINT, exec, hyprshot -m region
 
-
-bind = $shiftMod, V, exec, kitty --class clipse -e 'clipse' 
-
-windowrule = float,class:^(clipse)$ # ensure you have a floating window class set if you want this behavior
-windowrule = size 652 652,class:^(clipse)$ # set the size of the window as necessary
+# Clipboard history
+bind = $mainMod SHIFT, V, exec, kitty --class clipse -e 'clipse' 
 
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 # See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
 
-# Example windowrule v1
-# windowrule = float, ^(kitty)$
-
-# Example windowrule 
-# windowrule = float,class:^(kitty)$,title:^(kitty)$
+windowrule = float,class:^(clipse)$ # ensure you have a floating window class set if you want this behavior
+windowrule = size 652 652,class:^(clipse)$ # set the size of the window as necessary
 
 windowrule = suppressevent maximize, class:.* # You'll probably like this.
 
-# Tearing
-# windowrule=immediate,.*\.exe
-# windowrule=immediate,class:(steam_app)
-
 # No shadow for tiled windows
 windowrule = noshadow,floating:0
-
-#/ ######## Layer rules ########
-#  layerrule = xray 1, .*
-
-
-
 
 # Window Position - Centered
 windowrule = center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$
@@ -340,6 +329,9 @@ windowrule = noinitialfocus, class:^(xwaylandvideobridge)$
 windowrule = maxsize 1 1, class:^(xwaylandvideobridge)$
 windowrule = noblur, class:^(xwaylandvideobridge)$
 windowrule = nofocus, class:^(xwaylandvideobridge)$
+
+# Do not show notifications on stream
+windowrule = noscreenshare, class:^([Ss]waync)$
 '';
 
     "hypr/hyprpaper.conf".text = ''

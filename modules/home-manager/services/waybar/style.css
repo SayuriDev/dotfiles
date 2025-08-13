@@ -7,7 +7,7 @@
     transition: background-color .3s ease-out;
 }
 window#waybar {
-    background: alpha(@base02, 0.7);
+    background: alpha(@base02, 0.23);
     color: @base05;
     font-family: 
         SpaceMono Nerd Font Propo,
@@ -43,11 +43,16 @@ window#waybar {
     padding: 0px 10px;
     border-radius: 15px;
 }
+
 #network {
     background: @base01;
     margin: 5px 8px;
     padding: 0px 10px;
     border-radius: 15px;
+}
+
+#network.disconnected {
+    color: @base0A;
 }
 
 #cpu_group {
@@ -56,9 +61,15 @@ window#waybar {
     padding: 0px 10px;
     border-radius: 15px;
 }
+
 #temperature {
     padding-right: 10px;
 }
+
+#temperature.critical {
+    color: @base08;
+}
+
 #cpu {
     margin-left: 0;
     padding: 0;
@@ -70,9 +81,19 @@ window#waybar {
     padding: 0px 10px;
     border-radius: 15px;
 }
-#pulseaudio {
+
+#pulseaudio.output {
     padding-right: 10px;
 }
+
+#pulseaudio.output.muted {
+    color: @base08;
+}
+
+#pulseaudio.mic.source-muted {
+    color: @base08;
+}
+
 #pulseaudio.mic {
     margin-left: 0;
     padding: 0;

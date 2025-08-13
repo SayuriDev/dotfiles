@@ -13,7 +13,7 @@
   "hyprland/window": {
     "max-length": 40
   },
-  "pulseaudio": {
+  "pulseaudio#output": {
     "format": " {volume}%",
     "format-bluetooth": "󰦢  {volume}%",
     "format-muted": " MUTED",
@@ -27,8 +27,6 @@
     "format-source-muted": "MUTED",
     "on-click": "pavucontrol -t 4",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
-    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%-",
     "tooltip": false
 },
   "tray": {
@@ -62,8 +60,8 @@
     },
 	  "temperature": {
       "interval": 10,
-      "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input",
-      "critical-threshold": 98,
+      "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 95,
       "format-critical": " {temperatureC}",
       "format": " {temperatureC}°C"
 	  },

@@ -25,7 +25,7 @@
 
     "group/audio_group": {
         "orientation": "horizontal",
-        "modules": ["pulseaudio", "pulseaudio#mic"]
+        "modules": ["pulseaudio#output", "pulseaudio#mic"]
     },
     "group/cpu_group": {
         "orientation": "horizontal",

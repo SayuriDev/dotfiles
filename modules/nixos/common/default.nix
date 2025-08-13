@@ -7,6 +7,7 @@
    ../programs/steam
    ../programs/virtualbox
    ../services/nh
+   ../services/gnome-keyring
    ../firewall
 
 
@@ -100,8 +101,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-
 
   # Configure console keymap
   console.keyMap = "pl2";
