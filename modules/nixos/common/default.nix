@@ -8,7 +8,7 @@
    ../programs/virtualbox
    ../services/nh
    ../services/gnome-keyring
-   ../firewall
+   ../services/polkit
 
 
 

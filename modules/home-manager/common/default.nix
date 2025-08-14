@@ -47,7 +47,6 @@
       clipse
       gparted
       nix-search-cli
-      roomeqwizard
     ];
 
 
