@@ -4,26 +4,26 @@
     mimeApps = {
       enable = true;
        associations.added = {
-         "audio/mpeg" = ["io.mpv.Mpv"];
-         "image/jpeg" = ["org.kde.gwenview"];
-         "image/jpg" = ["org.kde.gwenview"];
-         "image/png" = ["org.kde.gwenview"];
-         "video/mp3" = ["io.mpv.Mpv"];
-         "video/mp4" = ["io.mpv.Mpv"];
-         "video/quicktime" = ["io.mpv.Mpv"];
-         "video/webm" = ["io.mpv.Mpv"];
+         "audio/mpeg" = ["io.mpv.Mpv.desktop"];
+         "image/jpeg" = ["org.kde.gwenview.desktop"];
+         "image/jpg" = ["org.kde.gwenview.desktop"];
+         "image/png" = ["org.kde.gwenview.desktop"];
+         "video/mp3" = ["io.mpv.Mpv.desktop"];
+         "video/mp4" = ["io.mpv.Mpv.desktop"];
+         "video/quicktime" = ["io.mpv.Mpv.desktop"];
+         "video/webm" = ["io.mpv.Mpv.desktop"];
        };
        defaultApplications = {
       #   "application/json" = ["gnome-text-editor.desktop"];
       #   "application/toml" = ["org.gnome.TextEditor.desktop"];
-         "audio/*" = ["io.mpv.Mpv"];
-         "audio/mp3" = ["io.mpv.Mpv"];
-         "image/*" = ["org.kde.gwenview"];
-         "image/jpg" = ["org.kde.gwenview"];
-         "image/png" = ["org.kde.gwenview"];
+         "audio/*" = ["io.mpv.Mpv.desktop"];
+         "audio/mp3" = ["io.mpv.Mpv.desktop"];
+         "image/*" = ["org.kde.gwenview.desktop"];
+         "image/jpg" = ["org.kde.gwenview.desktop"];
+         "image/png" = ["org.kde.gwenview.desktop"];
       #   "text/plain" = "org.gnome.TextEditor.desktop";
-         "video/*" = ["io.mpv.Mpv"];
-         "video/mp4" = ["io.mpv.Mpv"];
+         "video/*" = ["io.mpv.Mpv.desktop"];
+         "video/mp4" = ["io.mpv.Mpv.desktop"];
        };
     };
     userDirs = {

@@ -1,14 +1,16 @@
 { inputs, lib, config, pkgs, ... }: {
 
  imports = [
+
   ./hardware-configuration.nix
-   ../desktop/hyprland
-   ../drivers/nvidia
-   ../programs/steam
-   ../programs/virtualbox
-   ../services/nh
-   ../services/gnome-keyring
-   ../services/polkit
+  ../desktop/hyprland
+  ../drivers/nvidia
+  ../programs/steam
+  ../programs/virtualbox
+  ../services/nh
+  ../services/gnome-keyring
+  ../services/polkit
+  ../services/flatpak
 
 
 
@@ -101,6 +103,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # Set default shell
+  programs.fish.enable = true;
+  users.users.sayu.shell = pkgs.fish;
 
   # Configure console keymap
   console.keyMap = "pl2";

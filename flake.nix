@@ -21,9 +21,11 @@
 
     nix-colorizer.url = "github:nutsalhan87/nix-colorizer";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, nur, nix-colorizer, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, nur, nix-colorizer, nix-flatpak, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -36,6 +38,8 @@
             stylix.nixosModules.stylix
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
+            nix-flatpak.nixosModules.nix-flatpak
+            
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -46,7 +50,7 @@
               home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common
-                  stylix.homeModules.stylix
+                  inputs.stylix.homeModules.stylix
                   inputs.nixcord.homeModules.nixcord
                   inputs.spicetify-nix.homeManagerModules.default
 

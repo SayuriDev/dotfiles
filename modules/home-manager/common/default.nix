@@ -8,7 +8,6 @@
     ../desktop
     ../misc/xdg
     ../programs/firefox
-    ../programs/bottles
     ../programs/prismlauncher
     ../programs/vscode
     ../programs/discord
@@ -18,7 +17,6 @@
     ../misc/stylix
     ../misc/fonts
     ../misc/gtk
-
   ];
 
   # Nicely reload system units when changing configs
@@ -47,6 +45,7 @@
       clipse
       gparted
       nix-search-cli
+      libarchive
     ];
 
 
