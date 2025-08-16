@@ -11,6 +11,7 @@
   ../services/gnome-keyring
   ../services/polkit
   ../services/flatpak
+  ../stylix
 
 
 

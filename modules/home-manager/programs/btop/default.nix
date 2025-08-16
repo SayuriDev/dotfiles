@@ -1,6 +1,10 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 {
-  home.packages = with pkgs; [
-    btop
-  ];
+  programs.btop = {
+    enable = true;
+    extraConfig = ''
+      color_theme="stylix"
+    '';
+  };
+
 }

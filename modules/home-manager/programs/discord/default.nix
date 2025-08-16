@@ -1,7 +1,6 @@
 {config, inputs, ...}:
 let 
-  hex = inputs.nix-colorizer.hex;
-  colors = config.stylix.base16Scheme;
+  colors = config.vars.base16SchemeNoHash;
 in
 {
   programs.nixcord = {

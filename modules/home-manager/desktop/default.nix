@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  colors = config.stylix.noHash;
+  colors = config.vars.base16SchemeNoHash;
 in {
 
   imports = [

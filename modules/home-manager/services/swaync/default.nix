@@ -1,9 +1,7 @@
 { pkgs, config, ... }:
 let 
-  colors = config.stylix.base16Scheme;
+  colors = config.vars.base16Scheme;
 in {
-  stylix.targets.swaync.enable = false;  
-
   services.swaync = {
     enable = true;
     settings = {

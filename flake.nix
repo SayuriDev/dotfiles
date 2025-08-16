@@ -40,6 +40,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./modules/nixos/common
+            ./vars.nix
             stylix.nixosModules.stylix
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
@@ -55,7 +56,7 @@
               home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common
-                  inputs.stylix.homeModules.stylix
+                  ./vars.nix
                   inputs.nixcord.homeModules.nixcord
                   inputs.spicetify-nix.homeManagerModules.default
 
