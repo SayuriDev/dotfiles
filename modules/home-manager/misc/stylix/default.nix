@@ -26,12 +26,7 @@ in {
       #   desktop = 0.9;
       #   applications = 0.9;
       # };
-
-      targets.waybar.enable = false;
-      targets.swaync.enable = false;
-      targets.zen-browser.profileNames = ["default"];
-  
-
+      
       base16Scheme = {
         base00 = "#1e1e2e"; # base
         base01 = "#181825"; # mantle

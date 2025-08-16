@@ -3,6 +3,6 @@ TODO:
 - [ ] add hypridle
 - [ ] add power menu
 - [ ] switch to zen browser
-- [ ] try to look up on persistance
+- [ ] try to look up on persistence
 - [ ] theme fastfetch
-- [ ] theme shell
+- [x] theme shell

@@ -2,6 +2,8 @@
 let 
   colors = config.stylix.base16Scheme;
 in {
+  stylix.targets.swaync.enable = false;  
+
   services.swaync = {
     enable = true;
     settings = {
