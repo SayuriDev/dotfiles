@@ -17,6 +17,7 @@
     ../misc/stylix
     ../misc/fonts
     ../misc/gtk
+    ../misc/starship
   ];
 
   # Nicely reload system units when changing configs
