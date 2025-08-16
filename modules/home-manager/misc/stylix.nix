@@ -6,7 +6,7 @@
       enable = true;
       autoEnable = true;
       polarity = "dark";
-      image = ../wallpaper/wallpaper.png;
+      image = config.vars.wallpaper;
       base16Scheme = config.vars.base16Scheme;
       
       cursor = {
@@ -17,6 +17,7 @@
 
       targets = {
         waybar.enable = false;
+        swaync.enable = false;
       };
     };
   };

@@ -6,14 +6,6 @@
 }: let
   colors = config.vars.base16SchemeNoHash;
 in {
-
-  imports = [
-    ../misc/wallpaper
-    ../programs/wofi
-    ../services/waybar
-    ../services/swaync
-
-  ];
   home.packages = with pkgs; [ 
     hyprpaper
     hyprshot
@@ -334,11 +326,11 @@ windowrule = nofocus, class:^(xwaylandvideobridge)$
 windowrule = noscreenshare, class:^([Ss]waync)$
 '';
 
-    "hypr/hyprpaper.conf".text = ''
-      splash = false
-      preload = ${config.wallpaper}
-      wallpaper = , ${config.wallpaper}
-    '';
+    # "hypr/hyprpaper.conf".text = ''
+    #   splash = false
+    #   preload = ${config.wallpaper}
+    #   wallpaper = , ${config.wallpaper}
+    # '';
 
     # "hypr/hypridle.conf".text = ''
     #   general {

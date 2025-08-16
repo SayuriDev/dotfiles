@@ -6,18 +6,10 @@
 }: {
   imports = [
     ../desktop
-    ../misc/xdg
-    ../programs/firefox
-    ../programs/prismlauncher
-    ../programs/vscode
-    ../programs/discord
-    ../programs/spotify
-    ../programs/kitty
-    ../programs/btop
-    ../misc/stylix
-    ../misc/fonts
-    ../misc/gtk
-    ../misc/starship
+    ../programs
+    ../misc
+    ../services/swaync
+    ../services/waybar
   ];
 
   # Nicely reload system units when changing configs

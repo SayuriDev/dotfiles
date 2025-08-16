@@ -1,20 +1,12 @@
 { inputs, lib, config, pkgs, ... }: {
 
  imports = [
-
   ./hardware-configuration.nix
   ../desktop/hyprland
   ../drivers/nvidia
-  ../programs/steam
-  ../programs/virtualbox
-  ../services/nh
-  ../services/gnome-keyring
-  ../services/polkit
-  ../services/flatpak
+  ../programs
+  ../services
   ../stylix
-
-
-
   ];
 
   environment.systemPackages = with pkgs; 

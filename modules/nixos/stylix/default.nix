@@ -19,6 +19,8 @@
       package = pkgs.bibata-cursors;
       size = 24;
     };
+
+    image = config.vars.wallpaper;
   };
   
 }
