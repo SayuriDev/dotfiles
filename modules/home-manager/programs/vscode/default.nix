@@ -1,5 +1,3 @@
-# Planning to switch to neovim
-
 { pkgs, ... }:
 {
 
