@@ -9,6 +9,7 @@ in {
   home.packages = with pkgs; [ 
     hyprpaper
     hyprshot
+    hyprlock
     ];
   # Source hyprland config from the home-manager store
   xdg.configFile = {
@@ -22,6 +23,7 @@ exec-once = gnome-keyring-daemon --start --components=secrets
 exec-once = clipse -listen
 # exec-once = nm-applet --indicator
 # exec-once = kdeconnect-indicator
+exec-once = hyprlock || hyprctl dispatch exit
 
 # Autostart desktop apps
 exec-once = vesktop
@@ -326,18 +328,71 @@ windowrule = nofocus, class:^(xwaylandvideobridge)$
 windowrule = noscreenshare, class:^([Ss]waync)$
 '';
 
-    # "hypr/hyprpaper.conf".text = ''
-    #   splash = false
-    #   preload = ${config.wallpaper}
-    #   wallpaper = , ${config.wallpaper}
-    # '';
+    "hypr/hyprpaper.conf".text = ''
+      splash = false
+      preload = ${config.vars.wallpaper}
+      wallpaper = , ${config.vars.wallpaper}
+    '';
 
-    # "hypr/hypridle.conf".text = ''
-    #   general {
-    #     lock_cmd = pidof hyprlock || dynamic-hyprlock
-    #     before_sleep_cmd = loginctl lock-session
-    #     after_sleep_cmd = hyprctl dispatch dpms on
-    #   }
-    # '';
+    "hypr/hyprlock.conf".text = ''
+
+background {
+  monitor=auto
+  blur_passes=1
+  blur_size=7
+  noise=0.011700
+  path="screenshot"
+}
+
+image {
+  monitor=DP-2
+  halign=center
+  # path="/home/sayu/dotfiles/media/profile.png"
+  position=0, 50
+  valign=center
+}
+
+input-field {
+  monitor=DP-2
+  size=200,50
+  check_color=rgb(30, 107, 204)
+  dots_center=true
+  dots_size=0.200000
+  dots_spacing=0.350000
+  fade_on_empty=false
+  font_color=rgb(111, 45, 104)
+  halign=center
+  hide_input=false
+  inner_color=rgba(0, 0, 0, 0.2)
+  outer_color=rgba(0, 0, 0, 0)
+  outline_thickness=2
+  placeholder_text=<i><span foreground="##cdd6f4">Input Password...</span></i>
+  position=0, -100
+  rounding=-1
+  valign=center
+}
+
+label {
+  monitor=DP-2
+  color=rgba(242, 243, 244, 0.75)
+  font_family=JetBrains Mono
+  font_size=95
+  halign=center
+  position=0, 300
+  text=$TIME
+  valign=center
+}
+
+label {
+  monitor=DP-2
+  color=rgba(242, 243, 244, 0.75)
+  font_family=JetBrains Mono
+  font_size=22
+  halign=center
+  position=0, 200
+  text=cmd[update:1000] echo $(date +"%A, %B %d")
+  valign=center
+}
+    '';
   };
 }

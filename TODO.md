@@ -1,5 +1,5 @@
 TODO: 
-- [ ] add hyprlock
+- [x] add hyprlock
 - [ ] add hypridle
 - [ ] add power menu
 - [ ] switch to zen browser

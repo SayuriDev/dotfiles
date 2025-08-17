@@ -8,5 +8,6 @@
   ./spotify.nix
   ./kitty.nix
   ./btop.nix
+  ./wofi.nix
 ];
 }

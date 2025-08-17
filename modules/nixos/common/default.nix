@@ -98,8 +98,16 @@
   };
 
   # Set default shell
-  programs.fish.enable = true;
+  programs.fish = {
+   enable = true;
+   interactiveShellInit = '' 
+    starship init fish | source 
+   '';
+  };
   users.users.sayu.shell = pkgs.fish;
+
+  # (caused by fish) disabled due to long builds
+  documentation.man.generateCaches = false;
 
   # Configure console keymap
   console.keyMap = "pl2";
