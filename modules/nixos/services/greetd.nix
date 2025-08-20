@@ -1,7 +1,7 @@
 {...}:
 { 
   services.greetd = {
-  enable = true;
+  enable = false;
   settings = rec {
     initial_session = {
       command = "hyprland > /dev/null 2>&1";

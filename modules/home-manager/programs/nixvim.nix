@@ -9,6 +9,10 @@
       telescope.enable = true;
       lspconfig.enable = true;
       blink-cmp.enable = true;
+      fugitive.enable = true;
+      neo-tree.enable = true;
+      nvim-ufo.enable = true;
+      notify.enable = true;
       };
 
     opts = {

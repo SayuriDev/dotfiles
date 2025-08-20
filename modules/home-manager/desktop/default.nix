@@ -23,7 +23,7 @@ exec-once = gnome-keyring-daemon --start --components=secrets
 exec-once = clipse -listen
 # exec-once = nm-applet --indicator
 # exec-once = kdeconnect-indicator
-exec-once = hyprlock || hyprctl dispatch exit
+# exec-once = hyprlock || hyprctl dispatch exit
 exec-once = systemctl --user start graphical-session.target
 
 # Autostart desktop apps
