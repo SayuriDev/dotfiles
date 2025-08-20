@@ -3,7 +3,15 @@
 {
 
 # Enable OpenGL
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+  enable = true;
+  enable32Bit = true;
+  extraPackages = with pkgs; [
+    vaapiVdpau
+    libvdpau-va-gl
+    nvidia-vaapi-driver
+    ];
+  };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];

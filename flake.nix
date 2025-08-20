@@ -14,9 +14,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     stylix = { 
       url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -59,6 +63,7 @@
                   ./vars
                   inputs.nixcord.homeModules.nixcord
                   inputs.spicetify-nix.homeManagerModules.default
+                  inputs.nixvim.homeModules.nixvim
 
                 ];
               };

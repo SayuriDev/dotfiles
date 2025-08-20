@@ -24,6 +24,7 @@ exec-once = clipse -listen
 # exec-once = nm-applet --indicator
 # exec-once = kdeconnect-indicator
 exec-once = hyprlock || hyprctl dispatch exit
+exec-once = systemctl --user start graphical-session.target
 
 # Autostart desktop apps
 exec-once = vesktop
@@ -300,14 +301,14 @@ windowrule = opacity 0.96 0.93, class:^([Dd]iscord|[Vv]esktop)$
 windowrule = opacity 0.93 0.89, class:^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$
 windowrule = opacity 0.8 0.7, class:^(app.drey.Warp)$ # Warp File Transfer
 windowrule = opacity 0.9 0.8, class:^(seahorse)$ # gnome-keyring GUI
-windowrule = opacity 0.82 0.75, class:^(gnome-system-monitor|org.gnome.SystemMonitor)$
+windowrule = opacity 0.82 0.75, class:^(gnome-system-monitor|DP-3rg.gnome.SystemMonitor)DP-3
 windowrule = opacity 0.9 0.8, class:^(xdg-desktop-portal-gtk)$ # gnome-keyring GUI
 windowrule = opacity 0.9 0.7, class:^([Ww]hatsapp-for-linux)$
 windowrule = opacity 0.95 0.75, title:^(Picture-in-Picture)$
 windowrule = opacity 0.9 0.9 class:^([RrWw]ofi)$
 
 # Window Size Rules
-windowrule = size 70% 70%, class:^(gnome-system-monitor|org.gnome.SystemMonitor)$
+windowrule = size 70% 70%, class:^(gnome-system-monitor|DP-3rg.gnome.SystemMonitor)DP-3
 windowrule = size 70% 70%, class:^(xdg-desktop-portal-gtk)$
 windowrule = size 60% 70%, title:^(Kvantum Manager)$
 windowrule = size 60% 70%, class:^(qt6ct)$
@@ -337,15 +338,15 @@ windowrule = noscreenshare, class:^([Ss]waync)$
     "hypr/hyprlock.conf".text = ''
 
 background {
-  monitor=auto
+  monitor=DP-3
   blur_passes=1
   blur_size=7
   noise=0.011700
-  path="screenshot"
+  path=screenshot
 }
 
 image {
-  monitor=DP-2
+  monitor=DP-3
   halign=center
   # path="/home/sayu/dotfiles/media/profile.png"
   position=0, 50
@@ -353,7 +354,7 @@ image {
 }
 
 input-field {
-  monitor=DP-2
+  monitor=DP-3
   size=200,50
   check_color=rgb(30, 107, 204)
   dots_center=true
@@ -373,7 +374,7 @@ input-field {
 }
 
 label {
-  monitor=DP-2
+  monitor=DP-3
   color=rgba(242, 243, 244, 0.75)
   font_family=JetBrains Mono
   font_size=95
@@ -384,7 +385,7 @@ label {
 }
 
 label {
-  monitor=DP-2
+  monitor=DP-3
   color=rgba(242, 243, 244, 0.75)
   font_family=JetBrains Mono
   font_size=22

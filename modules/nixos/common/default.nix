@@ -100,13 +100,13 @@
   # Set default shell
   programs.fish = {
    enable = true;
-   interactiveShellInit = '' 
-    starship init fish | source 
-   '';
+  interactiveShellInit = ''
+    starship init fish | source
+  '';
   };
   users.users.sayu.shell = pkgs.fish;
 
-  # (caused by fish) disabled due to long builds
+  # (caused by fish) disabled due to long build times
   documentation.man.generateCaches = false;
 
   # Configure console keymap
