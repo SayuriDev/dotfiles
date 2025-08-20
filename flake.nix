@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05"; 
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,12 +33,14 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
 
+
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, nur, nix-colorizer, nix-flatpak, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, nur, nix-colorizer, nix-flatpak, nixpkgs-stable, ... }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
     in {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
@@ -56,7 +59,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
 
-              home-manager.extraSpecialArgs = { inherit inputs outputs nix-colorizer; };
+              home-manager.extraSpecialArgs = { inherit inputs outputs nix-colorizer pkgs-stable; };
               home-manager.users."sayu" = {
                 imports = [
                   ./modules/home-manager/common

@@ -1,9 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, pkgs-stable, config, ... }:
 let 
   colors = config.vars.base16Scheme;
 in {
   services.swaync = {
     enable = true;
+    package = pkgs-stable.swaynotificationcenter; # unstable was crashing my apps
     settings = {
       "$schema" = "/etc/xdg/swaync/configSchema.json";
       positionX = "right";

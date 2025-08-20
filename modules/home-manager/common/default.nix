@@ -39,6 +39,7 @@
       gparted
       nix-search-cli
       libarchive
+      tree
     ];
 
 
