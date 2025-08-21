@@ -6,5 +6,6 @@
     ./polkit.nix
     ./flatpak.nix
     ./greetd.nix
+    ./keyd.nix
   ];
 }

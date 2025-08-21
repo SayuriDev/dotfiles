@@ -38,7 +38,7 @@ env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = QT_AUTO_SCREEN_SCALE_FACTOR,1
 env = QT_QPA_PLATFORM,wayland
-
+env = EDITOR,nvim
 input {
     kb_layout = pl
     follow_mouse = 0

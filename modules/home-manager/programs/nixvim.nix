@@ -8,10 +8,19 @@
       treesitter.enable = true;
       telescope.enable = true;
       lspconfig.enable = true;
-      blink-cmp.enable = true;
+      blink-cmp = {
+	enable = true;
+	settings.sources.default = [
+	"lsp"
+	"path"
+	"snippets"
+	"buffer"
+	];
+      };
       fugitive.enable = true;
       neo-tree.enable = true;
       notify.enable = true;
+
       };
 
     opts = {

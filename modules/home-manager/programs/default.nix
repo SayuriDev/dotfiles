@@ -10,5 +10,6 @@
   ./btop.nix
   ./wofi.nix
   ./nixvim.nix
-];
+  ./yazi.nix
+  ];
 }

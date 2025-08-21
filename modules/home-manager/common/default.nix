@@ -40,6 +40,8 @@
       nix-search-cli
       libarchive
       tree
+      yazi
+    
     ];
 
 

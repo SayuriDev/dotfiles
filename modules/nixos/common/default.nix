@@ -6,7 +6,7 @@
   ../drivers/nvidia
   ../programs
   ../services
-  ../stylix
+  ../misc
   ];
 
   environment.systemPackages = with pkgs; 
@@ -96,15 +96,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Set default shell
-  programs.fish = {
-   enable = true;
-  interactiveShellInit = ''
-    starship init fish | source
-  '';
-  };
-  users.users.sayu.shell = pkgs.fish;
 
   # (caused by fish) disabled due to long build times
   documentation.man.generateCaches = false;
