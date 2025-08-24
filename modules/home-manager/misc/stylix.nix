@@ -17,6 +17,7 @@
 
       targets = {
         waybar.enable = false;
+        gtk.flatpakSupport.enable = false;
         swaync.enable = false;
       };
     };

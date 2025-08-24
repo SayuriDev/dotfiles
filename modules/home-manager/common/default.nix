@@ -5,7 +5,8 @@
   ...
 }: {
   imports = [
-    ../desktop
+    ../desktop/hyprland.nix
+    ../desktop/quickshell
     ../programs
     ../misc
     ../services/swaync
@@ -41,7 +42,9 @@
       libarchive
       tree
       yazi
-    
+      foliate    
+
+      osu-lazer-bin
     ];
 
 

@@ -3,7 +3,7 @@
  imports = [
   ./hardware-configuration.nix
   ../desktop/hyprland
-  ../drivers/nvidia
+  ../drivers
   ../programs
   ../services
   ../misc
