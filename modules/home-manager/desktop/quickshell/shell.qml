@@ -4,11 +4,15 @@ import QtQuick
 import Quickshell
 import "./modules/bar/"
 
-ShellRoot {
-    id: root
 
+ShellRoot {
+    id: rootShell
     Loader {
         active: true
         sourceComponent: Bar {}
     }
+    Loader {
+        source: "./modules/ui/audio/Audio.qml"
+    }
+
 }
