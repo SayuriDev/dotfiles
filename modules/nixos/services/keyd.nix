@@ -7,7 +7,7 @@
         ids = [ "*" ];
         settings = {
           main = {
-            capslock = "layer(escape)"; # you might need to also enclose the key in quotes if it contains non-alphabetical symbols
+            capslock = "escape"; # you might need to also enclose the key in quotes if it contains non-alphabetical symbols
           };
           otherlayer = {};
         };

@@ -3,6 +3,7 @@ import Quickshell
 import QtQuick.Controls
 import QtQuick.Layouts
 import "../ui/audio/"
+import "../ui/power/"
 
 Scope {
     PanelWindow {
@@ -43,6 +44,7 @@ Scope {
         RowLayout {
             anchors.fill: parent
             spacing: 5
+            PowerButton { Layout.alignment: Qt.AlignHCenter; Layout.leftMargin: leftpanel.implicitWidth / 2; }
             Item { Layout.fillWidth: true }
             Mpris { Layout.alignment: Qt.AlignHCenter }
             Item { Layout.fillWidth: true; }

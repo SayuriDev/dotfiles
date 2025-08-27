@@ -4,11 +4,10 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
 
-PanelWindow {
+Window {
     height: 300
     width: 300
-    visible: Vars.popupVisible
-    exclusionMode: ExclusionMode.None
+    visible: Vars.visible
 
     RowLayout {
         anchors.fill: parent

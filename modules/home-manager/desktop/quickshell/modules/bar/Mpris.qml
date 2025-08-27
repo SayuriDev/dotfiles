@@ -38,6 +38,7 @@ RowLayout {
     anchors.centerIn: parent
 
 
+
     // visible: !!root.player
     enabled: root.player && root.player.canTogglePlaying
     onClicked: root.player.togglePlaying()
@@ -57,7 +58,7 @@ RowLayout {
         }      
         Text {
             id: title
-            text: root.player ? (root.player.trackTitle + " -" ||  "") : "-"
+            text: root.player ? (root.player.trackTitle + " -" ||  "") : "No title found"
             color: "#aaa"
             font.pixelSize: 15
             elide: Text.ElideRight

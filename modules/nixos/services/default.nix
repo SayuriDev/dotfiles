@@ -7,5 +7,6 @@
     ./flatpak.nix
     ./greetd.nix
     ./keyd.nix
+    ./power-profiles.nix
   ];
 }

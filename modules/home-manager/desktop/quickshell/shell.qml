@@ -14,5 +14,8 @@ ShellRoot {
     Loader {
         source: "./modules/ui/audio/Audio.qml"
     }
+    Loader {
+        source: "./modules/ui/power/Power.qml"
+    }
 
 }

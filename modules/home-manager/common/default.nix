@@ -43,7 +43,6 @@
       tree
       yazi
       foliate    
-
       osu-lazer-bin
     ];
 
