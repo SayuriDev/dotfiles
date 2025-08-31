@@ -1,10 +1,24 @@
-import QtQuick 
-import QtQuick.Controls 
-import QtQuick.Layouts 
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import Quickshell.Hyprland
+import "../."
 
 ColumnLayout {
     property var workspaces: Hyprland.workspaces
+
+    property var kanji: {
+        1: "一",
+        2: "二",
+        3: "三",
+        4: "四",
+        5: "五",
+        6: "六",
+        7: "七",
+        8: "八",
+        9: "九",
+        10: "十"
+    }
 
     Repeater {
         model: workspaces
@@ -14,12 +28,17 @@ ColumnLayout {
             font.pixelSize: 16
             onClicked: modelData.activate()
             background: Rectangle {
-                // color: modelData.active ? "#4CAF50" : "#222"
-                // border.color: modelData.active ? "#A5D6A7" : "#444"
-                border.width: 3
+                color: modelData.active ? Style.overlay : Style.surface
                 radius: 8
             }
-            text: modelData.id.toString()
+
+            Text { 
+                anchors.centerIn: parent
+                text: kanji[modelData.id] || modelData.id.toString ()
+                color: Style.textPrimary
+                font.family: Style.fontFamily
+                font.bold: true
+                }
         }
     }
 }

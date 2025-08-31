@@ -2,29 +2,18 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Services.UPower
+import "../.."
 
-
-
-Window {
-    height: 300
-    width: 300
-    visible: false
-    // exclusionMode: ExclusionMode.None
-    
-
-  Button {
-  icon.name: "battery"
-
-  // kliknięcie zmienia profil
-  onClicked: PowerProfiles.profile = PowerProfiles.PowerSaver
-  }
-// Keys.onPressed: {
-//         if (Vars.visible && event.key === Qt.Key_Escape) {
-//             Vars.visible = false
-//             console.log("escape pressed")
-//             event.accepted = true
-//         }
-// }
-
+ToolButton {
+    id: button
+    Text { text: "⏻"; anchors.centerIn: parent; font.pixelSize: 32; height: parent.height - 5; color: Style.textPrimary; } 
+    onClicked: Vars.toggle()
+    background: Rectangle {
+        implicitHeight: 40
+        implicitWidth: 40
+        color: button.hovered ? Style.overlay : Style.surface 
+        radius: 10;
+        }
+    Power {}
 }
+

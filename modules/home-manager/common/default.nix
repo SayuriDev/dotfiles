@@ -44,6 +44,8 @@
       yazi
       foliate    
       osu-lazer-bin
+      krita
+      kdePackages.ark
     ];
 
 

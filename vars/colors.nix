@@ -4,8 +4,8 @@ let
   stripHash = attrs: builtins.mapAttrs (_: val: builtins.substring 1 (builtins.stringLength val - 1) val) attrs;
 
   base16 = {
-    base00 = "#1e1e2e";
-    base01 = "#181825";
+    base00 = "#181825";
+    base01 = "#1e1e2e";
     base02 = "#313244";
     base03 = "#45475a";
     base04 = "#585b70";

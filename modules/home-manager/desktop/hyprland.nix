@@ -16,7 +16,6 @@ in {
     "hypr/hyprland.conf".text = 
 ''
 monitor=,highres,auto,1 #, bitdepth, 10
-
 exec-once = waybar
 exec-once = hyprpaper  
 exec-once = gnome-keyring-daemon --start --components=secrets

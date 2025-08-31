@@ -4,6 +4,7 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import QtQuick.Layouts
+import ".."
 
 RowLayout {
   id: root
@@ -34,7 +35,7 @@ RowLayout {
   ToolButton {
     implicitWidth: layout.width + 25
     implicitHeight: layout.height + 10
-    background:  Rectangle { color: "gray" }
+    background:  Rectangle { color: Style.surface }
     anchors.centerIn: parent
 
 
@@ -51,28 +52,36 @@ RowLayout {
 
         Text {
           id: icon
-          text: root.player && root.player.isPlaying ? "" : ""
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-          
+          text: root.player && root.player.isPlaying ? " " : " "
+          horizontalAlignment: Text.AlignHCenter
+          verticalAlignment: Text.AlignVCenter
+          color: Style.textDisabled
+          font.pixelSize: 20
+          font.bold: true
+          font.family: Style.fontFamily
         }      
         Text {
             id: title
             text: root.player ? (root.player.trackTitle + " -" ||  "") : "No title found"
-            color: "#aaa"
             font.pixelSize: 15
             elide: Text.ElideRight
             Layout.fillWidth: true
             Layout.maximumWidth: 200
-        }
+            color: Style.textPrimary
+            font.bold: true
+            font.family: Style.fontFamily
+            }
         Text {
             id: artist
-            text: root.player ? (root.player.trackArtist || "") : ""
-            color: "#aaa"
+            text: root.player ? (" " + root.player.trackArtist || "") : ""
             font.pixelSize: 15
             elide: Text.ElideRight
             Layout.fillWidth: true
             Layout.maximumWidth: 200
+            color: Style.textPrimary
+            font.bold: true
+            font.family: Style.fontFamily
+
         }
      }
   }

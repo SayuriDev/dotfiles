@@ -4,22 +4,21 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
 
-Window {
+PanelWindow {
+    id: panel
     height: 300
     width: 300
     visible: Vars.visible
-
+    
     RowLayout {
         anchors.fill: parent
         anchors.margins: 10
         spacing: 10
 
-        PwObjectTracker { objects: [ Pipewire.defaultAudioSink ] }
-
         Button {
             text: "🔊"
             onClicked: {
-                var sink = Pipewire.defaultAudioSink.audio
+                var sink = Vars.sink
                 if (sink) {
                     sink.volume = sink.volume > 0 ? 0 : 0.3
                     volumeSlider.value = sink.volume
@@ -31,10 +30,10 @@ Window {
             id: volumeSlider
             from: 0
             to: 1
-            value: !Pipewire.defaultAudioSink.audio.muted ? Pipewire.defaultAudioSink.audio.volume : 0
+            value: !Vars.sink.muted ? Vars.sink.volume : 0
             width: 120
             onMoved: {
-                var sink = Pipewire.defaultAudioSink.audio
+                var sink = Vars.sink
                 if (sink) sink.volume = value
             }
         }
