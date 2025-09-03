@@ -6,12 +6,12 @@ import "../.."
 
 ToolButton {
     id: button
-    Text { text: "⏻"; anchors.centerIn: parent; font.pixelSize: 32; height: parent.height - 5; color: Style.textPrimary; } 
+    Text { text: "⏻"; anchors.centerIn: parent; font.pixelSize: 32; height: parent.height; color: Style.textPrimary; } 
     onClicked: Vars.toggle()
     background: Rectangle {
-        implicitHeight: 40
-        implicitWidth: 40
-        color: button.hovered ? Style.overlay : Style.surface 
+        implicitHeight: 32
+        implicitWidth: 32
+        color: button.hovered ? Style.overlay : Style.surface
         radius: 10;
         }
     Power {}

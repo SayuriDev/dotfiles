@@ -15,7 +15,6 @@ RowLayout {
   })
   property MprisPlayer player: players.length ? players[0] : null
 
-  // Aktualizuj player jeśli lista się zmienia
   Timer {
     interval: 1000
     running: true
@@ -34,9 +33,9 @@ RowLayout {
   // anchors.fill: parent
   ToolButton {
     implicitWidth: layout.width + 25
-    implicitHeight: layout.height + 10
-    background:  Rectangle { color: Style.surface }
-    anchors.centerIn: parent
+    implicitHeight: 32
+    background:  Rectangle { color: Style.surface; radius: 6 }
+    anchors.centerIn: parent.right
 
 
 

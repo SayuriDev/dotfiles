@@ -1,9 +1,12 @@
 import QtQuick 
+import Quickshell
+import QtQuick.Layouts
+
 import "../."
 
 Rectangle {
-    width: clockText.paintedWidth + 20
-    height: clockText.paintedHeight + 20
+    width: clockText.paintedWidth + 15
+    height: 32
     color: mouseArea.containsMouse ? Style.overlay : Style.surface 
 
     // border.width: 
@@ -13,10 +16,11 @@ Rectangle {
            anchors.fill: parent
            hoverEnabled: true
            onClicked: console.log("TODO:")
+           implicitWidth: 10
        }
     Text {
         id: clockText
-        text: Qt.formatDateTime(clock.date, "hh \nmm")
+        text: Qt.formatDateTime(clock.date, "hh:mm")
         font.pixelSize: 19
         font.family: Style.fontFamily
 
@@ -24,4 +28,9 @@ Rectangle {
         anchors.centerIn: parent
         color: active ? Style.textPrimary : Style.textSecondary
      }
+
+     SystemClock {
+        id: clock
+     }
+
 }
