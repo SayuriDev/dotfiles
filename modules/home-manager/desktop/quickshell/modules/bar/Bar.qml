@@ -4,7 +4,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import "../ui/audio/"
 import "../ui/power/"
-import "../."
+
 
 Scope {
     PanelWindow {
@@ -16,6 +16,7 @@ Scope {
         implicitWidth: 50
 
         Rectangle {
+
             anchors.fill: parent
             color: Style.crust
 
@@ -76,6 +77,7 @@ Scope {
         }
 
         RowLayout {
+
             anchors.fill: parent
             spacing: 5
             anchors.topMargin: topborder.height
@@ -85,7 +87,7 @@ Scope {
             Ram { Layout.alignment: Qt.AlignHCenter; }
             Item { Layout.fillWidth: true }
             Item { Layout.fillWidth: true }
-            Clock { Layout.alignment: Qt.AlignHCenter }
+            Clock { Layout.alignment: Qt.AlignHCenter; }
             Item { Layout.fillWidth: true }
             Item { Layout.fillWidth: true }
             AudioButton { Layout.alignment: Qt.AlignHCenter; }

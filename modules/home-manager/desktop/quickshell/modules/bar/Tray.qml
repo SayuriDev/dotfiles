@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Services.SystemTray
 import Quickshell
-import ".."
+import "."
 
 ColumnLayout {
     spacing: 5

@@ -3,7 +3,7 @@ import QtQuick
 import Quickshell
 
 Singleton {
-    id: root
+  id: root
 
     // --- Base ---
     readonly property color crust: "#11111b"
@@ -49,6 +49,12 @@ Singleton {
     readonly property color textSecondary: base04
     readonly property color textDisabled:  base03
 
-    // -- Font ---
+    // --- Font ---
     property string fontFamily: "Jetbrains Mono Nerd Font"
+
+    // --- Media dir function ---
+    // function iconPath(name) {
+    // return Qt.resolvedUrl("media/" + name + ".svg")
+    // }
+
 }

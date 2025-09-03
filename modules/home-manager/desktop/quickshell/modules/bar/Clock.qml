@@ -1,13 +1,11 @@
 import QtQuick 
 import Quickshell
 import QtQuick.Layouts
-
-import "../."
-
 Rectangle {
+   property var style
     width: clockText.paintedWidth + 15
     height: 32
-    color: mouseArea.containsMouse ? Style.overlay : Style.surface 
+    color: mouseArea.containsMouse ? style.overlay : style.surface  /// tu dziala
 
     // border.width: 
     radius: 8
@@ -15,18 +13,18 @@ Rectangle {
            id: mouseArea
            anchors.fill: parent
            hoverEnabled: true
-           onClicked: console.log("TODO:")
+           onClicked: console.log(style.textPrimary)
            implicitWidth: 10
        }
     Text {
         id: clockText
         text: Qt.formatDateTime(clock.date, "hh:mm")
         font.pixelSize: 19
-        font.family: Style.fontFamily
+        font.family: style.fontFamily
 
         font.bold: true
         anchors.centerIn: parent
-        color: active ? Style.textPrimary : Style.textSecondary
+        color: style.error
      }
 
      SystemClock {

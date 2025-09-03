@@ -14,7 +14,7 @@ in
       ];
       frameless = true;                   # Set some Vencord options
       plugins = {
-        hideAttachments.enable = true;    # Enable a Vencord plugin
+       # hideAttachments.enable = true;    # Enable a Vencord plugin
 	volumeBooster.enable = true;
         };
       };

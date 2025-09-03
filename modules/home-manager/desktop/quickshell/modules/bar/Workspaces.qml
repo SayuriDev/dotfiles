@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Hyprland
-import "../."
+import "."
 
 ColumnLayout {
     property var workspaces: Hyprland.workspaces
