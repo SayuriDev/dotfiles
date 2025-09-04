@@ -4,7 +4,8 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import QtQuick.Layouts
-import "."
+import qs.modules.common
+
 
 RowLayout {
   id: root

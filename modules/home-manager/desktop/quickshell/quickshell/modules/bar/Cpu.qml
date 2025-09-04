@@ -9,7 +9,7 @@ import "."
 ToolButton {
     id: root
 
-    background: Rectangle {   
+    background: Rectangle {
         color: root.hovered ? Style.overlay : Style.surface
         radius: 12
         implicitWidth: 150

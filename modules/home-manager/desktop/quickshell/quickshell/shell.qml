@@ -1,14 +1,13 @@
 //@ pragma UseQApplication
 
+import "./modules/common/"
+import "./modules/bar/"
 
 import QtQuick
 import Quickshell
-import "./modules/bar/"
-import "./modules/common/"
 
 ShellRoot {
     id: rootShell
-
 
     Loader {
         id: barLoader

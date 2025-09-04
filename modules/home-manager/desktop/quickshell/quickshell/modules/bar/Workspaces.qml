@@ -2,9 +2,10 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Hyprland
-import "."
+import qs.modules.common
 
-ColumnLayout {
+
+RowLayout {
     property var workspaces: Hyprland.workspaces
 
     property var kanji: {
@@ -28,8 +29,9 @@ ColumnLayout {
             font.pixelSize: 16
             onClicked: modelData.activate()
             background: Rectangle {
-                color: modelData.active ? Style.overlay : Style.surface
-                radius: 8
+                color: "transparent"
+                // color: hovered ? Style.surface : "transparent"
+                // radius: 8
             }
 
             Text { 

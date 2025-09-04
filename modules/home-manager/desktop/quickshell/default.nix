@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{pkgs, config, lib, ...}:
 {
  home.packages = with pkgs; [
    quickshell
@@ -6,5 +6,11 @@
    qt5.qtgraphicaleffects
    kdePackages.qt5compat
  ];  
+  home.file.".config/quickshell/assets/shared/profile.png".source = config.vars.profile;
+
+  home.activation.qsSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    rm -rf $HOME/.config/quickshell
+    ln -s $HOME/dotfiles/modules/home-manager/desktop/quickshell/quickshell $HOME/.config/quickshell
+  '';
 
 }

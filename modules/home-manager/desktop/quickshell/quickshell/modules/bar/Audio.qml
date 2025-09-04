@@ -3,13 +3,14 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
-import "."
+import qs.modules.common
+
 
 
 ToolButton {
     id: button
     property var volumeIcon: {
-        if (Vars.sink.muted == true) return " " 
+        if (sink.muted == true) return " " 
         else return " "
     }
 
@@ -17,10 +18,10 @@ ToolButton {
         anchors.centerIn: parent
         text: volumeIcon
         font.family: Style.fontFamily
-        color: Vars.sink.muted ? Style.warning : Style.textPrimary
+        color: sink.muted ? Style.warning : Style.textPrimary
     }
 
-    onClicked: Vars.toggle()
+    // onClicked: toggle()
     background: Rectangle {   
         color: button.hovered ? Style.overlay : "transparent"
         radius: 12
@@ -29,5 +30,6 @@ ToolButton {
         anchors.fill: parent
         }
     
-    Audio {}
+    PwObjectTracker { objects: [ Pipewire.defaultAudioSink ] }
+    property var sink: Pipewire.defaultAudioSink.audio
 }

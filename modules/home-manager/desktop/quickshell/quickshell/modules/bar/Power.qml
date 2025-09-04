@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
-import "."
+import qs.modules.common
 
 ToolButton {
     id: button
@@ -14,6 +14,5 @@ ToolButton {
         color: button.hovered ? Style.overlay : Style.surface
         radius: 10;
         }
-    Power {}
 }
 

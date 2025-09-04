@@ -7,7 +7,6 @@ Singleton {
 
     // --- Base ---
     readonly property color crust: "#11111b"
-    readonly property color mantle: "#181825"
     readonly property color base00: "#181825"
     readonly property color base01: "#1e1e2e"
     readonly property color base02: "#313244"

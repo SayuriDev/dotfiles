@@ -3,12 +3,12 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Services.SystemTray
 import Quickshell
-import "."
+import qs.modules.common
 
 ColumnLayout {
     spacing: 5
     Layout.alignment: Qt.AlignHCenter
-    
+
     Repeater {
         model: SystemTray.items
         delegate: Item {
@@ -18,14 +18,21 @@ ColumnLayout {
             Rectangle {
                 id: rect
                 anchors.fill: parent
-                radius: 12
+                radius: 8
                 color: button.hovered ? Style.overlay : "transparent"
 
                 ToolButton {
                     id: button
                     anchors.fill: parent
-                    icon.source: modelData.icon
                     background: null
+
+                    Image {
+                        anchors.centerIn: parent
+                        source: modelData.icon
+                        width: parent.width * 0.55
+                        height: parent.height * 0.55
+                        fillMode: Image.PreserveAspectFit
+                    }
 
                     QsMenuAnchor {
                         id: menuAnchor
