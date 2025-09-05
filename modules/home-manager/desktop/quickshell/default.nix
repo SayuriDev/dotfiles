@@ -5,6 +5,7 @@
    qt5.qtdeclarative
    qt5.qtgraphicaleffects
    kdePackages.qt5compat
+   inter 
  ];  
   home.file.".config/quickshell/assets/shared/profile.png".source = config.vars.profile;
 

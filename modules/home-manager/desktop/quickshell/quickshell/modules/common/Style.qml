@@ -49,11 +49,8 @@ Singleton {
     readonly property color textDisabled:  base03
 
     // --- Font ---
-    property string fontFamily: "Jetbrains Mono Nerd Font"
+    readonly property string fontFamily: "Inter"
 
-    // --- Media dir function ---
-    // function iconPath(name) {
-    // return Qt.resolvedUrl("media/" + name + ".svg")
-    // }
-
+    readonly property int globalHeight: 40
+    readonly property int globalRadius: 8
 }

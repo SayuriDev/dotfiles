@@ -75,26 +75,35 @@ Scope {
             // }
         }
 
-        RowLayout {
-
+        Item {
             anchors.fill: parent
-            spacing: 5
-            anchors.topMargin: topborder.height
-            anchors.bottomMargin: topborder.height * 2
 
-            Clock { Layout.alignment: Qt.AlignHCenter; Layout.leftMargin: 5 }
-            Item { Layout.fillWidth: true }
-            Workspaces { Layout.alignment: Qt.AlignHCenter }
-            Item { Layout.fillWidth: true }
-            Tray { Layout.alignment: Qt.AlignRight; Layout.rightMargin: 5 }
-            // Item { Layout.fillWidth: true }
-            // Mpris { Layout.alignment: Qt.AlignHCenter; Layout.leftMargin: 5 }
-            // Ram { Layout.alignment: Qt.AlignHCenter; }
-            // Item { Layout.fillWidth: true }
-            // Audio { Layout.alignment: Qt.AlignHCenter; }
-            // Item { Layout.fillWidth: true }
-            // Cpu {}
-            // Power { Layout.alignment: Qt.AlignHCenter; Layout.rightMargin: 5 }
+            RowLayout {
+                id: leftlayout
+                anchors.fill: parent
+                spacing: 0
+                Clock {}
+            }
+
+            Workspaces { anchors.centerIn: parent }
+
+            RowLayout {
+                id: rightlayout
+                anchors.fill: parent
+                spacing: 20
+                Item { Layout.fillWidth: true }
+                Audio { Layout.alignment: Qt.AlignHCenter; Layout.rightMargin: 10 }
+                Tray { }
+                // Item { Layout.fillWidth: true }
+
+                // Item { Layout.fillWidth: true }
+                // Mpris { Layout.alignment: Qt.AlignHCenter; Layout.leftMargin: 5 }
+                // Ram { Layout.alignment: Qt.AlignHCenter; }
+                // Item { Layout.fillWidth: true }
+                // Item { Layout.fillWidth: true }
+                // Cpu {}
+                // Power { Layout.alignment: Qt.AlignHCenter; Layout.rightMargin: 5 }
+            }
         }
     }
 }

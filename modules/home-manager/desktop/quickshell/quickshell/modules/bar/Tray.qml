@@ -5,7 +5,7 @@ import Quickshell.Services.SystemTray
 import Quickshell
 import qs.modules.common
 
-ColumnLayout {
+RowLayout {
     spacing: 5
     Layout.alignment: Qt.AlignHCenter
 
@@ -13,12 +13,12 @@ ColumnLayout {
         model: SystemTray.items
         delegate: Item {
             width: 40
-            height: 40
+            height: Style.globalHeight
 
             Rectangle {
                 id: rect
                 anchors.fill: parent
-                radius: 8
+                radius: Style.globalRadius
                 color: button.hovered ? Style.overlay : "transparent"
 
                 ToolButton {
@@ -29,8 +29,8 @@ ColumnLayout {
                     Image {
                         anchors.centerIn: parent
                         source: modelData.icon
-                        width: parent.width * 0.55
-                        height: parent.height * 0.55
+                        width: parent.width * 0.5
+                        height: parent.height * 0.5
                         fillMode: Image.PreserveAspectFit
                     }
 
