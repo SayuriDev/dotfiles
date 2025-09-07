@@ -83,7 +83,7 @@ Item {
                     radiusX: (root.width - 10) / 2
                     radiusY: (root.height - 10) / 2
                     startAngle: -90
-                    sweepAngle: parseFloat(root.ram)
+                    sweepAngle: parseFloat(root.ram * 3.6)
                 }
             }
         }
