@@ -1,92 +1,95 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Services.Pipewire
-import qs.modules.common
-import Quickshell.Widgets
+import QtQuick.Shapes
 import QtQuick.Effects
+import Quickshell
+import Quickshell.Io
+import Quickshell.Widgets
+import qs.modules.common
+import Quickshell.Services.Pipewire
 
 Item {
-    implicitWidth: backgroundRect.width
-    implicitHeight: backgroundRect.height
-    // margin: 10
-    readonly property double svgSize: 23
+    id: root
+    readonly property int svgSize: 20
 
-    property var volumeIcon: {
-        if (sink.muted == true) volImage.source = speaker_mute 
-        else if (sink.volume <= 0.6) volImage.source = speaker
-        else if (sink.volume <= 5) volImage.source = speaker_high
-        else ""
+    PwObjectTracker { objects: [ Pipewire.defaultAudioSink, Pipewire.defaultAudioSource ] }
+
+    readonly property bool sinkMuted: Pipewire.defaultAudioSink.audio.muted
+    readonly property var volume: sinkMuted ? 0 : ( Pipewire.defaultAudioSink.audio.volume * 100 ).toFixed(0)
+
+    property var volumeColor: {
+        if (volume <= 100) volumeShape.strokeColor = Style.base07
+        else if (volume <= 200) volumeShape.strokeColor = Style.warning
+        else volumeShape.strokeColor = style.error
     }
 
-    IconImage {
-        id: speaker_high
-        anchors.centerIn: parent
-        source: Qt.resolvedUrl(`${Dirs.assetsPath}/icons/speaker_high.svg`)
-        implicitSize: svgSize
-        visible: false
-    }
-    IconImage {
-        id: speaker
-        anchors.centerIn: parent
-        source: Qt.resolvedUrl(`${Dirs.assetsPath}/icons/speaker.svg`)
-        implicitSize: svgSize
-        visible: false
-    }
-    IconImage {
-        id: speaker_mute
-        anchors.centerIn: parent
-        source: Qt.resolvedUrl(`${Dirs.assetsPath}/icons/speaker_mute.svg`)
-        implicitSize: svgSize
-        visible: false
-    }
-    IconImage {
-        id: mic_mute
-        anchors.centerIn: parent
-        source: Qt.resolvedUrl(`${Dirs.assetsPath}/icons/mic_mute.svg`)
-        implicitSize: svgSize
-        visible: false
-    }
+    implicitWidth: implicitHeight
+    implicitHeight: Style.globalHeight
 
     ToolButton {
         id: button
-        anchors.centerIn: parent
-        RowLayout {
-            anchors.fill: parent
-            MultiEffect {
-                id: volImage
-                // source:  ! managed by volumeIcon !
-                colorization: 1
-                brightness: 1
-                colorizationColor: Style.textPrimary
-                Layout.alignment: Qt.AlignHCenter
-                Layout.preferredWidth: svgSize
-                Layout.preferredHeight: svgSize
-            }
-            MultiEffect {
-                visible: micMuted
-                id: micImage
-                Layout.alignment: Qt.AlignHCenter
-                source: mic_mute
-                colorization: 1
-                brightness: 1
-                colorizationColor: Style.warning
-                Layout.preferredWidth: svgSize / 1.05
-                Layout.preferredHeight: svgSize / 1.05
-            }
-        }
-        onClicked: console.log(micMuted)
+        anchors.fill: parent
+        onClicked: console.log(volume)
+
         background: Rectangle {
             id: backgroundRect
             anchors.fill: parent
-            implicitWidth: micImage.visible ? micImage.Layout.preferredWidth + volImage.Layout.preferredWidth + 15 : volImage.Layout.preferredWidth + 15
-            implicitHeight: Style.globalHeight
             color: button.hovered ? Style.overlay : "transparent"
             radius: Style.globalRadius
+        }
+
+        IconImage {
+            id: volumeSvg
+            anchors.centerIn: parent
+            source: sinkMuted ? Qt.resolvedUrl(`${Dirs.assetsPath}/icons/speaker_mute.svg`) : Qt.resolvedUrl(`${Dirs.assetsPath}/icons/speaker.svg`)
+            implicitSize: svgSize
+            visible: false
+        }
+        MultiEffect {
+            anchors.centerIn: parent
+            visible: volumeSvg
+            source: volumeSvg
+            colorization: 1
+            brightness: 1
+            colorizationColor: Style.textPrimary
+            implicitHeight: svgSize
+            implicitWidth: svgSize
+        }
+
+        Shape {
+            anchors.centerIn: parent
+            layer.enabled: true
+            layer.smooth: true
+            antialiasing: true
+            ShapePath {
+                strokeWidth: 6
+                strokeColor: Style.background
+                fillColor: "transparent"
+                PathAngleArc {
+                    centerX: root.width / 2
+                    centerY: root.height / 2
+                    radiusX: (root.width - 10) / 2
+                    radiusY: (root.height - 10) / 2
+                    startAngle: -90
+                    sweepAngle: 360
+                }
             }
+            ShapePath {
+                id: volumeShape
+                strokeWidth: 3
+                // strokeColor: ! managed by volumeColor !
+                fillColor: "transparent"
+                capStyle: ShapePath.RoundCap
+                PathAngleArc {
+                    centerX: root.width / 2
+                    centerY: root.height / 2
+                    radiusX: (root.width - 10) / 2
+                    radiusY: (root.height - 10) / 2
+                    startAngle: -90
+                    sweepAngle: parseFloat(root.volume * 3.6 ) 
+                }
+            }
+        }
     }
-    PwObjectTracker { objects: [ Pipewire.defaultAudioSink, Pipewire.defaultAudioSource ] }
-    property bool micMuted: Pipewire.defaultAudioSource.audio.muted
-    property var sink: Pipewire.defaultAudioSink.audio
 }
