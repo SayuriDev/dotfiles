@@ -36,6 +36,7 @@
 
         # Hardware acceleration
         "gfx.webrender.all" = true;
+        "layers.acceleration.force-enabled" = true;
         "media.ffmpeg.vaapi.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
         "widget.dmabuf.force-enabled" = true;
@@ -100,6 +101,14 @@
         "dom.push.connection.enabled" = false;
         "dom.battery.enabled" = false;
         "dom.private-attribution.submission.enabled" = false;
+
+        # Make browser faster, more responsive
+        "network.http.pipelining.enable" = true;
+        "network.http.proxy.pipelining" = true;
+        "network.http.proxy.pipelining.ssl" = true;
+        "network.http.pipelining.maxrequests" = 30;
+        "nglayout.initialpaint.delay" = 0;
+        "browser.cache.disk.parent_directory" = "/dev/shm/ffcache";
       };
 
       extensions = {
