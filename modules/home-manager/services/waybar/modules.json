@@ -1,0 +1,77 @@
+{
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "format-icons": {
+      "active": "",
+      "urgent": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "max-length": 40
+  },
+  "pulseaudio#output": {
+    "format": " {volume}%",
+    "format-bluetooth": "󰦢  {volume}%",
+    "format-muted": " MUTED",
+    "justify": "center",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "pulseaudio#mic": {
+    "format": "󰍬 {format_source}",
+    "format-source": "{volume}%",
+    "format-source-muted": "MUTED",
+    "on-click": "pavucontrol -t 4",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 17,
+    "spacing": 6
+  },
+  "custom/playerctl": {
+    "format": " 󰐊 {} ",
+    "return-type": "json",
+    "max-length": 40,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause"
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": " Disconnected",
+    "on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "format": "  {used:0.1f}G/{total:0.1f}G",
+    "tooltip": true,
+    "tooltip-format": "using {used:0.2f}G out of {total:0.2f}G"
+  },
+  "temperature": {
+    "interval": 10,
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 95,
+    "format-critical": " {temperatureC}",
+    "format": " {temperatureC}°C"
+  },
+  "clock": {
+    "format": "{:%H:%M | %e %B} ",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "custom/nixos": {
+    "format": "",
+    "tooltip": false
+  }
+}

@@ -1,0 +1,56 @@
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  imports = [
+    ../desktop/hyprland.nix
+    ../desktop/quickshell
+    ../programs
+    ../misc
+    ../services/swaync
+    ../services/waybar
+  ];
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
+  # Home-Manager configuration for the user's home environment
+  home = {
+    username = "sayu";
+    homeDirectory = "/home/sayu";
+  };
+
+  # Ensure common packages are installed
+  home.packages = with pkgs;
+    [
+      anki-bin
+      fastfetch
+      libreoffice
+      unzip
+      pavucontrol
+      playerctl
+      anydesk
+      kdePackages.xwaylandvideobridge
+      kdePackages.gwenview
+      kdePackages.dolphin
+      mpv
+      clipse
+      gparted
+      nix-search-cli
+      libarchive
+      tree
+      yazi
+      foliate    
+      osu-lazer-bin
+      krita
+      kdePackages.ark
+
+    ];
+
+
+
+  home.stateVersion = "24.11"; # It's perfectly fine and recommended to leave this value at the release version of the first install of this system.
+
+}

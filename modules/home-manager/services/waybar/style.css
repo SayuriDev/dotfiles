@@ -1,0 +1,154 @@
+@import "colors.css";
+
+* {
+    /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
+    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif, "SpaceMono Nerd Font Propo";
+    font-size: 15px;
+    transition: background-color .3s ease-out;
+}
+window#waybar {
+    background: alpha(@base02, 0.23);
+    color: @base05;
+    font-family: 
+        SpaceMono Nerd Font Propo,
+        feather;
+    transition: background-color .5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right
+.modules-left {
+    padding: 0;
+}
+.modules-center {
+    padding: 0 10px;
+}
+
+#custom-playerctl {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#clock {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#memory {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+
+#network {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+
+#network.disconnected {
+    color: @base0A;
+}
+
+#cpu_group {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+
+#temperature {
+    padding-right: 10px;
+}
+
+#temperature.critical {
+    color: @base08;
+}
+
+#cpu {
+    margin-left: 0;
+    padding: 0;
+}
+
+#audio_group {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+
+#pulseaudio.output {
+    padding-right: 10px;
+}
+
+#pulseaudio.output.muted {
+    color: @base08;
+}
+
+#pulseaudio.mic.source-muted {
+    color: @base08;
+}
+
+#pulseaudio.mic {
+    margin-left: 0;
+    padding: 0;
+}
+
+
+
+#tray {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#window {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#workspaces {
+    background: @base01;
+    margin: 5px 8px;
+    padding: 0px 10px;
+    border-radius: 15px;
+}
+#workspaces button {
+    background: transparent;
+    font-family:
+      SpaceMono Nerd Font,
+      feather;
+    font-weight: 900;
+    font-size: 13pt;
+    color: #c0caf5;
+    border:none;
+    border-radius: 15px;
+}
+
+#workspaces button.active {
+    background: #13131d; 
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    box-shadow: none;
+}
+
+#custom-nixos {
+    color: @base0E;
+    font-size: 20px;
+
+    background: @base01;
+    margin: 5px 7px;
+    padding: 0px 13px;
+    border-radius: 15px;
+}
+
+/* top right bottom left */
