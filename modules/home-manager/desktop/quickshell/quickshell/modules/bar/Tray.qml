@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell.Services.SystemTray
 import Quickshell
+import Quickshell.Services.SystemTray
 import qs.modules.common
 
 RowLayout {
@@ -11,18 +11,21 @@ RowLayout {
 
     Repeater {
         model: SystemTray.items
+
         delegate: Item {
             width: 40
             height: Style.globalHeight
 
             Rectangle {
                 id: rect
+
                 anchors.fill: parent
                 radius: Style.globalRadius
                 color: button.hovered ? Style.overlay : "transparent"
 
                 ToolButton {
                     id: button
+
                     anchors.fill: parent
                     background: null
 
@@ -36,6 +39,7 @@ RowLayout {
 
                     QsMenuAnchor {
                         id: menuAnchor
+
                         anchor.window: leftpanel
                         anchor.item: rect
                         menu: modelData.menu
@@ -46,14 +50,21 @@ RowLayout {
                         acceptedButtons: Qt.RightButton | Qt.LeftButton
                         onClicked: (mouse) => {
                             if (mouse.button === Qt.RightButton) {
-                                if (menuAnchor.menu) menuAnchor.open()
+                                if (menuAnchor.menu)
+                                    menuAnchor.open();
+
                             } else {
-                                modelData.activate()
+                                modelData.activate();
                             }
                         }
                     }
+
                 }
+
             }
+
         }
+
     }
+
 }

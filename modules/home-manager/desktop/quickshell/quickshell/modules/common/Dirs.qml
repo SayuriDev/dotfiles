@@ -1,10 +1,9 @@
-pragma Singleton
 import QtQuick
 import Quickshell
+pragma Singleton
 
 Singleton {
-  id: root
+    id: root
 
-  property string assetsPath: Quickshell.shellPath("assets")
-
+    property string assetsPath: Quickshell.shellPath("assets")
 }
