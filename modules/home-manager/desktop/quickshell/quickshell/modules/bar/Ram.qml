@@ -23,10 +23,11 @@ Item {
     implicitWidth: implicitHeight
     implicitHeight: Style.globalHeight
 
+    RamPopup { id: rampopup }
     ToolButton {
         id: button
         anchors.fill: parent
-        onClicked: console.log(ram)
+        onClicked: rampopup.visible = !rampopup.visible
 
         background: Rectangle {
             id: backgroundRect

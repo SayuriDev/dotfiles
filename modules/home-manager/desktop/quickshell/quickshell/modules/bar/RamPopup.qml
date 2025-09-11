@@ -9,18 +9,33 @@ import qs.modules.common
 
 
 PanelWindow {
+    anchors.top: parent.top
     id: root
-    width: 400
-    height: 200
+    implicitWidth: 600
+    implicitHeight: 300
     visible: false
+    exclusionMode: ExclusionMode.Ignore
 
     property var currentUsage
     property var maxRam
 
-    Text {
-        text: currentUsage
+    RowLayout {
+        anchors.horizontalCenter: parent.horizontalCenter
+        spacing: root.width / 3
+        Text {
+            text: "cpu"
+        }
+        Text {
+            text: "ram"
+        }
+        Text {
+            text: "disk"
+        }
     }
 
+    Column { 
+        
+    }
     Process {
         id: ramProc
         command: ["/bin/sh", "-c", "free -m | awk '/Mem:/ { printf(\"%d %d\", $3, $2) }'"]
