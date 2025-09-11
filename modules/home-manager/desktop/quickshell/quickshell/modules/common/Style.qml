@@ -3,7 +3,7 @@ import QtQuick
 import Quickshell
 
 Singleton {
-  id: root
+    id: root
 
     // --- Base ---
     readonly property color crust: "#11111b"
