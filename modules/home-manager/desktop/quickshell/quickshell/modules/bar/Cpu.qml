@@ -13,12 +13,14 @@ Item {
 
     readonly property int svgSize: 20
     property var cpuUsageColor: {
-        if (cpu <= 60) cpuUsageShape.strokeColor = Style.base07
-        else if (cpu <= 85) cpuUsageShape.strokeColor = Style.warning
-        else if (cpu <=100) cpuUsageShape.strokeColor = Style.error
+        if (cpu <= 60)
+            cpuUsageShape.strokeColor = Style.base07;
+        else if (cpu <= 85)
+            cpuUsageShape.strokeColor = Style.warning;
+        else if (cpu <= 100)
+            cpuUsageShape.strokeColor = Style.error;
     }
-    property var cpuSamples: []
-    property int cpu
+    property var cpu: ResourceUsage.cpuUsage
 
     implicitWidth: 40
     implicitHeight: Style.globalHeight
@@ -98,37 +100,6 @@ Item {
             radius: Style.globalRadius
         }
 
-    }
-
-    Process {
-        id: cpuProc
-
-        command: ["/bin/sh", "-c", "top -bn1 | grep 'Cpu(s)' | awk '{print 100 - $8}'"]
-        running: true
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                let value = parseFloat(this.text.trim());
-                if (!isNaN(value)) {
-                    if (root.cpuSamples.length >= 6)
-                        root.cpuSamples.shift();
-
-                    root.cpuSamples.push(value);
-                    let sum = root.cpuSamples.reduce((a, b) => {
-                        return a + b;
-                    }, 0);
-                    root.cpu = (sum / root.cpuSamples.length).toFixed(0);
-                }
-            }
-        }
-
-    }
-
-    Timer {
-        interval: 2000
-        running: true
-        repeat: true
-        onTriggered: cpuProc.running = true
     }
 
 }
