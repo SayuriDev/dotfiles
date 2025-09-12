@@ -46,7 +46,7 @@
       osu-lazer-bin
       krita
       kdePackages.ark
-
+      teams-for-linux
     ];
 
 
