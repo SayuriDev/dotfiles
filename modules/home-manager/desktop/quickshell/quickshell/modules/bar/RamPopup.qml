@@ -1,69 +1,63 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Effects
 import QtQuick.Layouts
+import QtQuick.Shapes
 import Quickshell
 import Quickshell.Io
 import Quickshell.Services.Mpris
 import Quickshell.Widgets
 import qs.modules.common
+import qs.modules.popup.hardwareUsage
 
 PanelWindow {
     id: root
 
-    property var currentUsage
-    property var maxRam
+    property bool showCpu: false
+    property bool showRam: false
+    property bool showDisk: false
 
     anchors.top: parent.top
-    implicitWidth: 600
-    implicitHeight: 300
+    margins.top: parent.height
+    implicitWidth: 800
+    implicitHeight: 400
     visible: false
     exclusionMode: ExclusionMode.Ignore
 
-    RowLayout {
-        anchors.horizontalCenter: parent.horizontalCenter
-        spacing: root.width / 3
+    ColumnLayout {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.fill: parent
+        anchors.margins: 10
 
-        Text {
+        Button {
             text: "cpu"
+            onClicked: showCpu = !showCpu
         }
 
-        Text {
+        Button {
             text: "ram"
         }
 
-        Text {
+        Button {
             text: "disk"
         }
 
     }
 
-    Column {
-    }
+    ColumnLayout {
+        visible: showCpu
+        // anchors.leftMargin: 0
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: 50
 
-    Process {
-        id: ramProc
-
-        command: ["/bin/sh", "-c", "free -m | awk '/Mem:/ { printf(\"%d %d\", $3, $2) }'"]
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                let parts = text.split(" ");
-                let usage = parseInt(parts[0]);
-                let max = parseInt(parts[1]);
-                root.currentUsage = usage;
-                root.maxRam = max;
-            }
+        CpuUsage {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredHeight: 160
+            Layout.preferredWidth: 160
         }
+        // anchors.centerIn: parent
 
-    }
-
-    Timer {
-        interval: 2500
-        running: true
-        repeat: true
-        onTriggered: {
-            ramProc.running = true;
-        }
     }
 
 }
