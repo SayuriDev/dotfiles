@@ -11,6 +11,7 @@
     ../misc
     ../services/swaync
     ../services/waybar
+    ../services/clipse.nix
   ];
 
   # Nicely reload system units when changing configs
@@ -36,7 +37,6 @@
       kdePackages.gwenview
       kdePackages.dolphin
       mpv
-      clipse
       gparted
       nix-search-cli
       libarchive

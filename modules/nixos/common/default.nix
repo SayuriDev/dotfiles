@@ -19,6 +19,7 @@
     home-manager
     killall
     lm_sensors
+    wl-clipboard
   ];
   nixpkgs.config.allowUnfree = true;
 
