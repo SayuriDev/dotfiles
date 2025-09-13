@@ -9,6 +9,11 @@ RowLayout {
     spacing: 5
     Layout.alignment: Qt.AlignHCenter
 
+    Item { // ! Do not remove ! Required to prevent shifting of the bar when there are no icons
+        Layout.preferredWidth: 1
+        Layout.preferredHeight: 1
+    }
+
     Repeater {
         model: SystemTray.items
 
