@@ -11,5 +11,6 @@
   ./wofi.nix
   ./nixvim.nix
   ./yazi.nix
+  ./helix.nix
   ];
 }
