@@ -4,6 +4,16 @@
     enable = true;
     defaultEditor = true;
 
+    extraConfig = ''
+      [keys.normal]
+      C-r = [
+        ':sh rm -f /tmp/unique-file',
+        ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+        ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+        ':open %sh{cat /tmp/unique-file}',
+        ':redraw',
+      ]
+    '';
     settings = {
       editor.cursor-shape = {
         normal = "block";
@@ -15,12 +25,21 @@
         middle-click-paste = false;
         line-number = "relative";
         clipboard-provider = "wayland";
+        color-modes = true;
       };
       editor.whitespace = {
-        render = { tab = "all"; };
-        character = { tab = "→"; tabpad = "·"; };
+        render = {
+          tab = "all";
+        };
+        character = {
+          tab = "→";
+          tabpad = "·";
+        };
       };
-      editor.soft-wrap = { enable = true; max-wrap = 50; };
+      editor.soft-wrap = {
+        enable = true;
+        max-wrap = 50;
+      };
     };
 
     languages.language = [
@@ -75,9 +94,16 @@
     ];
 
     languages.language-server = {
-      nil = { command = "${pkgs.nil}/bin/nil"; };
-      rust-analyzer = { command = "${pkgs.rust-analyzer}/bin/rust-analyzer"; };
-      pyright = { command = "${pkgs.pyright}/bin/pyright-langserver"; args = [ "--stdio" ]; };
+      nil = {
+        command = "${pkgs.nil}/bin/nil";
+      };
+      rust-analyzer = {
+        command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+      };
+      pyright = {
+        command = "${pkgs.pyright}/bin/pyright-langserver";
+        args = [ "--stdio" ];
+      };
       typescript-language-server = {
         command = "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
         args = [ "--stdio" ];
@@ -86,7 +112,9 @@
         command = "${pkgs.nodePackages.vscode-json-languageserver}/bin/vscode-json-languageserver";
         args = [ "--stdio" ];
       };
-      marksman = { command = "${pkgs.marksman}/bin/marksman"; };
+      marksman = {
+        command = "${pkgs.marksman}/bin/marksman";
+      };
     };
   };
 }
