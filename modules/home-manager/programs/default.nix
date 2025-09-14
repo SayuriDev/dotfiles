@@ -12,5 +12,6 @@
   ./nixvim.nix
   ./yazi.nix
   ./helix.nix
+  ./droidcam.nix
   ];
 }
