@@ -7,6 +7,7 @@ Singleton {
     id: root
 
     property var cpuUsage
+    property var cpuTemp
 
     Process {
         id: cpuProc
@@ -33,12 +34,28 @@ Singleton {
         }
 
     }
+    Process {
+        id: tempProc
+
+        command: ["/bin/sh", "-c", "sensors | grep 'Package id 0:' | awk '{print $4}' | tr -d '+°C'"]
+        running: true
+
+        stdout: StdioCollector {
+            onStreamFinished: {
+                let value = parseFloat(this.text.trim());
+                cpuTemp = value;
+            }
+        }
+    }
 
     Timer {
         interval: 2000
         running: true
         repeat: true
-        onTriggered: cpuProc.running = true
+        onTriggered: {
+            cpuProc.running = true;
+            tempProc.running = true;
+        }
     }
 
 }

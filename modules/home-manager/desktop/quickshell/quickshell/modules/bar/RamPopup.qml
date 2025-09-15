@@ -56,7 +56,11 @@ PanelWindow {
             Layout.preferredHeight: 160
             Layout.preferredWidth: 160
         }
-        // anchors.centerIn: parent
+        CpuTemp {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredHeight: 160
+            Layout.preferredWidth: 160
+        }        // anchors.centerIn: parent
 
     }
 
