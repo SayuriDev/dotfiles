@@ -13,9 +13,9 @@ Item {
 
     readonly property int svgSize: 20
     property var cpuUsageColor: {
-        if (cpu <= 60)
+        if (cpu <= 75)
             cpuTempShape.strokeColor = Style.base07;
-        else if (cpu <= 85)
+        else if (cpu <= 90)
             cpuTempShape.strokeColor = Style.warning;
         else if (cpu <= 100)
             cpuTempShape.strokeColor = Style.error;
