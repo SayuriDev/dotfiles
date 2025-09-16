@@ -2,8 +2,6 @@ import QtQuick
 import Quickshell
 import QtQuick.Controls
 import QtQuick.Layouts
-import "../ui/audio/"
-import "../ui/power/"
 import qs.modules.common
 
 Scope {
@@ -93,7 +91,9 @@ Scope {
                 spacing: 0
                 Item { Layout.fillWidth: true }
                 Cpu {}
+                CpuTemp {}
                 Ram {}
+                Item { Layout.preferredWidth: 5 }
                 Audio {}
                 Tray { Layout.rightMargin: 5 }
                 // Mpris { Layout.alignment: Qt.AlignHCenter; Layout.leftMargin: 5 }

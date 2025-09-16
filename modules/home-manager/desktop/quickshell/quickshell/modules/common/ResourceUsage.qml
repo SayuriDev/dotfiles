@@ -8,6 +8,8 @@ Singleton {
 
     property var cpuUsage
     property var cpuTemp
+    property var ramUsage
+    
 
     Process {
         id: cpuProc
@@ -34,6 +36,7 @@ Singleton {
         }
 
     }
+
     Process {
         id: tempProc
 
@@ -46,6 +49,21 @@ Singleton {
                 cpuTemp = value;
             }
         }
+
+    }
+
+    Process {
+        id: ramProc
+
+        command: ["/bin/sh", "-c", "free -m | awk '/Mem:/ { printf(\"%3.0f\", $3/$2*100) }'"]
+
+        stdout: StdioCollector {
+            onStreamFinished: {
+                let value = parseInt(this.text.trim());
+                ramUsage = value;
+            }
+        }
+
     }
 
     Timer {
@@ -55,6 +73,7 @@ Singleton {
         onTriggered: {
             cpuProc.running = true;
             tempProc.running = true;
+            ramProc.running = true;
         }
     }
 
