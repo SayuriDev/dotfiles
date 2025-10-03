@@ -28,6 +28,7 @@
                 file:///home/sayu/Downloads
                 file:///home/sayu/Pictures
                 file:///home/sayu/Videos
+                file:///home/sayu/dotfiles
             ];
             extraConfig = {
                 gtk-application-prefer-dark-theme = true;
