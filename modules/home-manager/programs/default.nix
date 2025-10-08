@@ -13,5 +13,6 @@
     ./yazi.nix
     ./helix.nix
     ./gimp.nix
+    ./dev.nix
   ];
 }
