@@ -35,7 +35,6 @@
       anydesk
       kdePackages.xwaylandvideobridge
       kdePackages.gwenview
-      kdePackages.dolphin
       mpv
       gparted
       nix-search-cli
