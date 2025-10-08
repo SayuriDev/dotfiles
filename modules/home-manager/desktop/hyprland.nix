@@ -118,7 +118,7 @@ $mainMod = SUPER # Sets "Windows" key as main modifier
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, exec, kitty
 bind = $mainMod SHIFT, Q, killactive,
-bind = $mainMod, E, exec, dolphin
+bind = $mainMod, E, exec, thunar
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, wofi --drun
 bind = $mainMod, P, pseudo, # dwindle
