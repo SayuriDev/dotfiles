@@ -9,6 +9,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./networking.nix
     ../desktop/hyprland
     ../drivers
     ../programs

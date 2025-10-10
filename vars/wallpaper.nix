@@ -12,7 +12,7 @@ with lib;
     profile = mkOption {
       type = types.str;
       default = "${../assets/profile.png}";
-      description = "My wallpaper";
+      description = "My profile picture";
     };
   };
 }
