@@ -32,7 +32,7 @@ Item {
         id: button
 
         anchors.fill: parent
-        onClicked: console.log(volume)
+        onClicked: Pipewire.defaultAudioSink.audio.muted = !Pipewire.defaultAudioSink.audio.muted;
 
         IconImage {
             id: volumeSvg
