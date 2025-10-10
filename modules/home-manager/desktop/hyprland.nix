@@ -337,7 +337,7 @@ windowrule = noscreenshare, class:^([Ss]waync)$
     "hypr/hyprlock.conf".text = ''
 
 background {
-  monitor=DP-3
+
   blur_passes=1
   blur_size=7
   noise=0.011700
@@ -345,22 +345,22 @@ background {
 }
 
 image {
-  monitor=DP-3
   halign=center
-  # path="/home/sayu/dotfiles/media/profile.png"
+  path=${config.vars.profile}
+  size=150
+  border_size=0
   position=0, 50
   valign=center
 }
 
 input-field {
-  monitor=DP-3
   size=200,50
   check_color=rgb(30, 107, 204)
   dots_center=true
   dots_size=0.200000
   dots_spacing=0.350000
   fade_on_empty=false
-  font_color=rgb(111, 45, 104)
+  font_color=rgba(177, 183, 249, 1)
   halign=center
   hide_input=false
   inner_color=rgba(0, 0, 0, 0.2)
@@ -373,7 +373,6 @@ input-field {
 }
 
 label {
-  monitor=DP-3
   color=rgba(242, 243, 244, 0.75)
   font_family=JetBrains Mono
   font_size=95
@@ -384,7 +383,6 @@ label {
 }
 
 label {
-  monitor=DP-3
   color=rgba(242, 243, 244, 0.75)
   font_family=JetBrains Mono
   font_size=22
