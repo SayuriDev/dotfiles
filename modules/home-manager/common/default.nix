@@ -30,6 +30,7 @@
       fastfetch
       libreoffice
       unzip
+      unrar
       pavucontrol
       playerctl
       anydesk
