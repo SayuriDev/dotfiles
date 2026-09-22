@@ -60,7 +60,7 @@
     };
 
   users.users = {
-    sayu = {
+    ${config.vars.username} = {
       isNormalUser = true;
       extraGroups = [
         "networkmanager"

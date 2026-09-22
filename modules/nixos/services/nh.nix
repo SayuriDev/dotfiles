@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 {
@@ -8,7 +9,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/sayu/dotfiles"; # sets NH_OS_FLAKE variable for you
+    flake = "/home/${config.vars.username}/dotfiles"; # sets NH_OS_FLAKE variable for you
 
   };
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.fish = {
     enable = true;
@@ -8,5 +8,5 @@
       yz = "yazi";
     };
   };
-  users.users.sayu.shell = pkgs.fish;
+  users.users.${config.vars.username}.shell = pkgs.fish;
 }

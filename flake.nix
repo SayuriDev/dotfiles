@@ -55,6 +55,7 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      vars = import ./vars/user/data.nix;
     in
     {
       nixosConfigurations = {
@@ -82,7 +83,7 @@
                   pkgs-stable
                   ;
               };
-              home-manager.users."sayu" = {
+              home-manager.users.${vars.username} = {
                 imports = [
                   ./modules/home-manager/common
                   ./vars

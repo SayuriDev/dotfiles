@@ -17,8 +17,8 @@
 
   # Home-Manager configuration for the user's home environment
   home = {
-    username = "sayu";
-    homeDirectory = "/home/sayu";
+    username = config.vars.username;
+    homeDirectory = "/home/${config.vars.username}";
   };
 
   # Ensure common packages are installed
