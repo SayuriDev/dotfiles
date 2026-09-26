@@ -4,7 +4,7 @@
     enable = true;
 
     mimeApps = {
-      enable = false; # handled by kde
+      enable = true;
 
       defaultApplications = {
         "application/zip" = [ "org.kde.ark.desktop" ];
@@ -45,4 +45,6 @@
       createDirectories = true;
     };
   };
+
+  xdg.configFile."mimeapps.list".force = true;
 }

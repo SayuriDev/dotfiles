@@ -31,4 +31,12 @@
     };
   };
 
+  xdg.configFile."gtk-3.0/settings.ini".force = true;
+  xdg.configFile."gtk-4.0/settings.ini".force = true;
+
+  home.activation.fixGtkConfigs = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
+    rm -f "$HOME/.gtkrc-2.0"
+    rm -f "$HOME/.config/gtk-3.0/settings.ini"
+    rm -f "$HOME/.config/gtk-4.0/settings.ini"
+  '';
 }
