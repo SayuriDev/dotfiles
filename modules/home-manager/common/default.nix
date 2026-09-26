@@ -43,6 +43,9 @@
     teams-for-linux
   ];
 
+  home.sessionVariables = {
+    PICO_SDK_PATH = "${pkgs.pico-sdk}/lib/pico-sdk";
+  };
   home.stateVersion = "24.11"; # It's perfectly fine and recommended to leave this value at the release version of the first install of this system.
 
 }
