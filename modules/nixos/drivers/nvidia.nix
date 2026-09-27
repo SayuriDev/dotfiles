@@ -53,4 +53,8 @@
 
   };
 
+  boot.kernelParams = [
+    "nvidia-drm.fbdev=1"
+  ];
+
 }
