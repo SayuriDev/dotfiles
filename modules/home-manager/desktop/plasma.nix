@@ -12,6 +12,9 @@
   home.file.".local/share/color-schemes/ModusVivendiTinted.colors".source =
     ../../../assets/themes/ModusVivendiTinted/ModusVivendiTinted.colors;
 
+  home.file.".local/share/plasma/plasmoids/true-custom-clock".source =
+    ../../../assets/plasma/plasmoids/true-custom-clock;
+
   home.packages = with pkgs; [
     papirus-icon-theme
     bibata-cursors
@@ -57,74 +60,68 @@
 
     panels = [
       {
-        location = "bottom";
+        location = "left";
         widgets = [
-          "org.kde.plasma.kickoff"
           {
-            iconTasks = {
-              launchers = [
-                "applications:org.kde.dolphin.desktop"
-                "applications:firefox.desktop"
-                "applications:kitty.desktop"
-                "applications:code.desktop"
-                "applications:vesktop.desktop"
-              ];
-            };
-          }
-
-          "org.kde.plasma.marginsseparator"
-
-          # "~/.config/plasma-org.kde.plasma.desktop-appletsrc", "org.kde.plasma.resources-monitor" section
-          {
-            name = "org.kde.plasma.resources-monitor";
+            name = "true-custom-clock";
             config = {
-              General = {
-                graphs = builtins.toJSON [
-                  {
-                    _v = 4;
-                    type = "cpuText";
-                    sizes = [
-                      (-1)
-                      (-1)
-                    ];
-                    fontSize = -1;
-                    colors = [
-                      "textColor"
-                      "highlightColor"
-                    ];
-                    sensorsType = [ "usage" ];
-                    title = "CPU";
-                    titleWhen = "always";
-                  }
-                  {
-                    _v = 4;
-                    type = "memoryText";
-                    sizes = [
-                      (-1)
-                      (-1)
-                    ];
-                    fontSize = -1;
-                    colors = [
-                      "textColor"
-                      "highlightColor"
-                    ];
-                    sensorsType = [ "physical" ];
-                    title = "RAM";
-                    titleWhen = "always";
-                  }
-                ];
+              Appearance = {
+                autoFontAndSize = false;
+                fontFamily = "IBM Plex Mono";
+                fontSize = 16;
+                fontStyleName = "Regular";
+                fontWeight = 400;
               };
             };
           }
-          "org.kde.plasma.systemtray"
-          "org.kde.plasma.digitalclock"
+          { name = "org.kde.plasma.marginsseparator"; }
+          {
+            name = "org.kde.plasma.systemtray";
+            config = {
+              General = {
+                extraItems = "org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather";
+                knownItems = "org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.notifications,org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.weather";
+                reverseIconOrder = true;
+              };
+            };
+          }
+          {
+            name = "luisbocanegra.panel.colorizer";
+            config = {
+              General = {
+                configurationOverrides = builtins.toJSON {
+                  overrides = { };
+                  associations = [ ];
+                };
+                globalSettings = builtins.readFile ../../../assets/plasma/colorizer-global-settings.json;
+                hideWidget = true;
+                lastPreset = "/home/sayu/.local/share/plasma/plasmoids/luisbocanegra.panel.colorizer/contents/ui/presets/Black";
+                panelWidgets = builtins.readFile ../../../assets/plasma/colorizer-panel-widgets.json;
+              };
+            };
+          }
+          { name = "org.kde.plasma.panelspacer"; }
+          {
+            name = "org.kde.plasma.icontasks";
+            config = {
+              General = {
+                fill = false;
+                indicateAudioStreams = false;
+                reverseMode = true;
+                launchers = "applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:kitty.desktop,applications:code.desktop,applications:vesktop.desktop";
+              };
+            };
+          }
+          {
+            name = "org.kde.plasma.kickoff";
+            config = {
+              General = {
+                favoritesPortedToKAstats = true;
+              };
+            };
+          }
         ];
       }
-      # {
-      #   location = "top";
-      #   height = 26;
-      #   widgets = [ "org.kde.plasma.appmenu" ];
-      # }
     ];
 
     shortcuts = {
@@ -134,9 +131,6 @@
       };
     };
 
-    #
-    # Some low-level settings:
-    #
     configFile = {
       "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
 

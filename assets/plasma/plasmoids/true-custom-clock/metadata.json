@@ -1,0 +1,34 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Calamytryx"
+      }
+    ],
+    "Name": "true-custom-clock",
+    "Id": "true-custom-clock",
+    "Description": "custom clock",
+    "Icon": "chronometer",
+    "EnabledByDefault": true,
+    "License": "GPLv2+",
+    "ServiceTypes": [
+      "Plasma/Applet"
+    ],
+    "Version": "1.0",
+    "Website": "",
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-KDE-PluginInfo-Author": "Calamytryx",
+    "X-KDE-PluginInfo-Email": "",
+    "X-KDE-PluginInfo-Name": "true-custom-clock",
+    "X-KDE-PluginInfo-Version": "1.0",
+    "X-KDE-PluginInfo-Website": "",
+    "X-KDE-PluginInfo-License": "GPLv2+",
+    "X-KDE-PluginInfo-EnabledByDefault": true,
+    "X-Plasma-DefaultPackages": "plasma-framework",
+    "X-Plasma-ConfigStructure": "config.qml"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "X-Plasma-MainScript": "ui/main.qml",
+  "KPackageStructure": "Plasma/Applet"
+}
