@@ -71,7 +71,51 @@
               ];
             };
           }
+
           "org.kde.plasma.marginsseparator"
+
+          # "~/.config/plasma-org.kde.plasma.desktop-appletsrc", "org.kde.plasma.resources-monitor" section
+          {
+            name = "org.kde.plasma.resources-monitor";
+            config = {
+              General = {
+                graphs = builtins.toJSON [
+                  {
+                    _v = 4;
+                    type = "cpuText";
+                    sizes = [
+                      (-1)
+                      (-1)
+                    ];
+                    fontSize = -1;
+                    colors = [
+                      "textColor"
+                      "highlightColor"
+                    ];
+                    sensorsType = [ "usage" ];
+                    title = "CPU";
+                    titleWhen = "always";
+                  }
+                  {
+                    _v = 4;
+                    type = "memoryText";
+                    sizes = [
+                      (-1)
+                      (-1)
+                    ];
+                    fontSize = -1;
+                    colors = [
+                      "textColor"
+                      "highlightColor"
+                    ];
+                    sensorsType = [ "physical" ];
+                    title = "RAM";
+                    titleWhen = "always";
+                  }
+                ];
+              };
+            };
+          }
           "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"
         ];
