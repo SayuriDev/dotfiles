@@ -52,6 +52,43 @@
       enableMiddleClickPaste = false;
     };
 
+    powerdevil.AC = {
+      autoSuspend.action = "nothing";
+      powerButtonAction = "shutDown";
+    };
+
+    fonts = {
+      general = {
+        family = "IBM Plex Sans";
+        pointSize = 10;
+      };
+
+      fixedWidth = {
+        family = "IBM Plex Mono";
+        pointSize = 10;
+      };
+
+      small = {
+        family = "IBM Plex Sans";
+        pointSize = 8;
+      };
+
+      toolbar = {
+        family = "IBM Plex Sans";
+        pointSize = 10;
+      };
+
+      menu = {
+        family = "IBM Plex Sans";
+        pointSize = 10;
+      };
+
+      windowTitle = {
+        family = "IBM Plex Sans";
+        pointSize = 10;
+      };
+    };
+
     hotkeys.commands."launch-kitty" = {
       name = "Launch Kitty";
       key = "Meta+Q";
