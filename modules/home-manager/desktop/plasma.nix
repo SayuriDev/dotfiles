@@ -15,6 +15,8 @@
   home.file.".local/share/plasma/plasmoids/true-custom-clock".source =
     ../../../assets/plasma/plasmoids/true-custom-clock;
 
+  xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true; # override plasma font settings
+
   home.packages = with pkgs; [
     papirus-icon-theme
     bibata-cursors
@@ -60,7 +62,7 @@
     fonts = {
       general = {
         family = "IBM Plex Sans";
-        pointSize = 10;
+        pointSize = 11;
       };
 
       fixedWidth = {
