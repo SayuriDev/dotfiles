@@ -72,10 +72,11 @@
     };
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.systemd.enable = true;
   # services.openssh.enable = true;
   programs.nix-ld.enable = true;
 
-  # Bootloader.
   boot.loader.grub.enable = true;
   #  boot.loader.grub.device = "/dev/nvme0n1p4";
   boot.loader.grub.useOSProber = true;
@@ -84,12 +85,8 @@
   boot.loader.grub.devices = [ "nodev" ];
   boot.loader.grub.configurationLimit = 10;
 
-  # Set your time zone.
   time.timeZone = "Europe/Warsaw";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pl_PL.UTF-8";
     LC_IDENTIFICATION = "pl_PL.UTF-8";
