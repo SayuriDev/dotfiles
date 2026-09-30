@@ -11,7 +11,6 @@
         adblock
         hidePodcasts
         shuffle # shuffle+ (special characters are sanitized out of extension names)
-        betterGenres
         volumePercentage
         beautifulLyrics
       ];
