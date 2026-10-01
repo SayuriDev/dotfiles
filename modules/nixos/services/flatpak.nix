@@ -12,6 +12,7 @@
     packages = [
       "com.usebottles.bottles"
       "org.vinegarhq.Sober"
+      "com.heroicgameslauncher.hgl"
     ];
   };
 }
