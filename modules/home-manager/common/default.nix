@@ -41,6 +41,7 @@
     krita
     kdePackages.ark
     teams-for-linux
+    obs-studio
   ];
 
   home.sessionVariables = {

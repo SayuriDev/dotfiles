@@ -8,5 +8,6 @@
     ./power-profiles.nix
     ./udev.nix
     ./smartd.nix
+    ./virtualisation.nix
   ];
 }
