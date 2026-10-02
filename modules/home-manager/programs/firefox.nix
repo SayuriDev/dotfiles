@@ -26,6 +26,8 @@
       isDefault = true;
 
       settings = {
+        "browser.ai.control.default" = "blocked";
+
         # General
         "extensions.autoDisableScopes" = 0; # do not disable extensions installed by home-manager
 
