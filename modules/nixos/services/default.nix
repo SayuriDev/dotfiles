@@ -9,5 +9,6 @@
     ./udev.nix
     ./smartd.nix
     ./virtualisation.nix
+    ./printing.nix
   ];
 }
