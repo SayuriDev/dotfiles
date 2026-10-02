@@ -23,25 +23,32 @@
 
   # Ensure common packages are installed
   home.packages = with pkgs; [
+    playerctl
+    mpv
+    pavucontrol
+
     fastfetch
-    libreoffice
+    tree
+    nix-search-cli
+
+    gparted
+    kdePackages.ark
+    libarchive
+    _7zz
     unzip
     unrar
-    pavucontrol
-    playerctl
-    kdePackages.gwenview
-    mpv
-    gparted
-    nix-search-cli
-    libarchive
-    tree
-    yazi
+
+    libreoffice
     foliate
-    osu-lazer-bin
+
     krita
-    kdePackages.ark
-    teams-for-linux
+    gimp
     obs-studio
+    kdePackages.gwenview
+
+    teams-for-linux
+
+    freecad
   ];
 
   home.sessionVariables = {
