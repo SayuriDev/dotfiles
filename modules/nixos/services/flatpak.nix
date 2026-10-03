@@ -13,6 +13,7 @@
       "com.usebottles.bottles"
       "org.vinegarhq.Sober"
       "com.heroicgameslauncher.hgl"
+      "com.orcaslicer.OrcaSlicer"
     ];
   };
 }
