@@ -22,34 +22,48 @@
   };
 
   # Ensure common packages are installed
-  home.packages = with pkgs; [
-    playerctl
-    mpv
-    pavucontrol
+  home.packages =
+    with pkgs;
+    [
+      playerctl
+      mpv
+      pavucontrol
 
-    fastfetch
-    tree
-    nix-search-cli
+      fastfetch
+      tree
+      nix-search-cli
 
-    gparted
-    kdePackages.ark
-    libarchive
-    _7zz
-    unzip
-    unrar
+      gparted
+      kdePackages.ark
+      libarchive
+      _7zz
+      unzip
+      unrar
 
-    libreoffice
-    foliate
+      libreoffice
+      foliate
 
-    krita
-    gimp
-    obs-studio
-    kdePackages.gwenview
+      krita
+      gimp
+      obs-studio
+      kdePackages.gwenview
 
-    teams-for-linux
+      teams-for-linux
 
-    freecad
-  ];
+      freecad
+    ]
+    ++ [
+      # orca slicer workaround
+      (pkgs.symlinkJoin {
+        name = "orca-slicer";
+        paths = [ pkgs.orca-slicer ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/orca-slicer \
+            --set WEBKIT_DISABLE_DMABUF_RENDERER 1
+        '';
+      })
+    ];
 
   home.sessionVariables = {
     PICO_SDK_PATH = "${pkgs.pico-sdk}/lib/pico-sdk";
