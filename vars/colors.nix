@@ -5,16 +5,16 @@ let
     attrs: builtins.mapAttrs (_: val: builtins.substring 1 (builtins.stringLength val - 1) val) attrs;
 
   base16 = {
-    base00 = "#0d0e1c";
-    base01 = "#1a1b2e";
-    base02 = "#303650";
-    base03 = "#595959";
+    base00 = "#050505";
+    base01 = "#141414";
+    base02 = "#2a2a2a";
+    base03 = "#6e6e6e";
     base04 = "#a6a6a6";
     base05 = "#ffffff";
     base06 = "#e0dfe4";
     base07 = "#ffffff";
     base08 = "#ff5f59";
-    base09 = "#ff6b55";
+    base09 = "#fec43f";
     base0A = "#d0bc00";
     base0B = "#44bc44";
     base0C = "#00d3d0";
