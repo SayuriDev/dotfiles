@@ -12,6 +12,8 @@
     python3
 
     platformio
+    picotool
+    picocom
 
     android-tools
     libXrender
