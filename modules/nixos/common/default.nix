@@ -31,6 +31,7 @@
     nixpkgs-fmt
     nixd
     usbutils
+    e2fsprogs
   ];
   nixpkgs.config.allowUnfree = true;
 
