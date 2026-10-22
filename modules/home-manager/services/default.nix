@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    "./clipse.nix"
+    ./easyeffects.nix
   ];
 }
