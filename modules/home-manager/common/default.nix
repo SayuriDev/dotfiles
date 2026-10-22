@@ -9,7 +9,7 @@
     ../programs
     ../misc
     ../desktop
-    ../services/clipse.nix
+    ../services
   ];
 
   # Nicely reload system units when changing configs
