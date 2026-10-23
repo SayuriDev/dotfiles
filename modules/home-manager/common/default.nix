@@ -51,6 +51,8 @@
       teams-for-linux
 
       freecad
+
+      qalculate-qt
     ]
     ++ [
       # orca slicer workaround
