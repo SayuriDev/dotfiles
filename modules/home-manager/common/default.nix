@@ -28,31 +28,27 @@
       playerctl
       mpv
       pavucontrol
-
       fastfetch
       tree
       nix-search-cli
-
       gparted
       kdePackages.ark
       libarchive
       _7zz
       unzip
       unrar
-
-      libreoffice
       foliate
-
+      libreoffice
       krita
       gimp
       obs-studio
       kdePackages.gwenview
-
       teams-for-linux
-
       freecad
-
       qalculate-qt
+      vscode-fhs
+      prismlauncher
+
     ]
     ++ [
       # orca slicer workaround

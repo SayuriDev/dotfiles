@@ -11,6 +11,7 @@
 !*.conf
 !*.css
 !*.md
+!*.xml
 !.gitignore
 !.envrc
 !assets/
