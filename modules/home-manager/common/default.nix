@@ -9,7 +9,6 @@
     ../programs
     ../misc
     ../desktop
-    ../services
   ];
 
   # Nicely reload system units when changing configs
