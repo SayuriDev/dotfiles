@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   lib,
   config,
   ...
@@ -48,6 +49,9 @@
       vscode-fhs
       prismlauncher
 
+    ]
+    ++ [
+      pkgs-stable.pulsar
     ]
     ++ [
       # orca slicer workaround

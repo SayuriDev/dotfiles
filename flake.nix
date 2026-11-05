@@ -54,7 +54,14 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      pkgs-stable = import nixpkgs-stable {
+        inherit system;
+        config = {
+          permittedInsecurePackages = [
+            "pulsar-1.132.1"
+          ];
+        };
+      };
       vars = import ./vars/user/data.nix;
     in
     {
