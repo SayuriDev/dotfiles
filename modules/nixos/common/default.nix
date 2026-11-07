@@ -71,7 +71,6 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.systemd.enable = true;
   # services.openssh.enable = true;
   programs.nix-ld.enable = true;
 

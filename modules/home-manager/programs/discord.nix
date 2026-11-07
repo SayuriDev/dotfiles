@@ -7,6 +7,7 @@ in
     enable = true;
     vesktop = {
       enable = true;
+      useSystemVencord = false;
       settings = {
         arRPC = true;
       };
