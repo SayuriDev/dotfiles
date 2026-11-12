@@ -48,7 +48,7 @@
       qalculate-qt
       vscode-fhs
       prismlauncher
-
+      osu-lazer-bin
     ]
     ++ [
       pkgs-stable.pulsar
