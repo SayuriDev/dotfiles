@@ -49,6 +49,7 @@
       vscode-fhs
       prismlauncher
       osu-lazer-bin
+      anki-bin
     ]
     ++ [
       pkgs-stable.pulsar
